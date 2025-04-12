@@ -6,7 +6,6 @@
 # Para importar el paquete en Python para utilizarlo, se usa el comando from nombre_paquete import nombre_funcion.
 
 # -------------------------------------------------------------------------------------------------------------------- #
-
 # Modulos y Paquetes
 # Un módulo es un archivo que contiene código Python y puede contener funciones, clases y variables.
 # Un módulo se puede importar en otro módulo con el comando from nombre_modulo_a_importar import variables, *, etc.
@@ -18,7 +17,6 @@
 # Para importar subpaquetes, hay que usar el comando from nombre_paquete.nombre_subpaquete import nombre_modulo.
 
 # -------------------------------------------------------------------------------------------------------------------- #
-
 # Manejo de Errores
 # El manejo de errores en Python se hace con los comandos try, except, else y finally.
 # El bloque try contiene el código que puede generar un error.
@@ -28,14 +26,12 @@
 # Por ejemplo, si se quiere manejar un error de tipo TypeError, se usa el comando except TypeError.
 
 # -------------------------------------------------------------------------------------------------------------------- #
-
 # Busca Errores con Pylint:
 # Pylint es una herramienta para analizar el código Python y detectar problemas de errores o estilo.
 # Se puede instalar con el comando pip install pylint.
 # Para usar pylint, se usa el comando pylint nombre_archivo.py -r y en terminal.
 
 # -------------------------------------------------------------------------------------------------------------------- #
-
 # Probar codigo con Unitest:
 # Unitest es un módulo de Python que permite hacer pruebas unitarias.
 # Se puede importar con el comando import unittest y el archivo, import archivo.
@@ -46,7 +42,18 @@
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Decoradores:
-# Un decorador es una función que toma otra función como argumento y devuelve una nueva función.
+# Un decorador son funciones que modifican el comportamiento de otras funciones.
+# Las funciones en Python soportan operaciones tales como ser asignadas a unavariable, pasadas como argumento, y ser devueltas por otra función como resultado.
+# Si quieres usar un decorador, se usa el comando @nombre_decorador antes de la función que quieres decorar.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Generadores:
+# Un generador es una función que devuelve un iterador cuando quieres no todos seguidos.
+# Un generador se define con la palabra clave yield en vez de return.
+# Para poder usar el generador, se usa el atributo next() para obtener el siguiente valor.
+# Un generador recuerda su estado entre cada llamada, por lo que no se pierde la información.
+
+
 
 
 
