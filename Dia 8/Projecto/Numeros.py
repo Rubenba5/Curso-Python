@@ -15,18 +15,23 @@ def Cosmetica(funcion):
 
 
 def Perfumeria_Cuenta():
-    for n in range(1, 1001):
-        yield n
+    num = 1
+    while True:
+        yield num
+        num += 1
 
 
 def Farmacia_Cuenta():
-    for n in range(1, 1001):
-        yield n
+    num = 1
+    while True:
+        yield num
+        num += 1
 
 
 def Cosmetica_Cuenta():
-    for n in range(1, 1001):
-        yield n
-
+    num = 1
+    while True:
+        yield num
+        num += 1
 
 
