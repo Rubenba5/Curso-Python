@@ -51,5 +51,24 @@
 # 5. datetime.now(): devuelve la fecha y hora actual. Para usarlo, from datetime import datetime.
 
 # -------------------------------------------------------------------------------------------------------------------- #
-# Modulos para medir el Tiempo:
-# El módulo "time" proporciona funciones para trabajar con el tiempo.
+# Modulos Time:
+# El módulo time proporciona funciones para trabajar con el tiempo.
+# Para usarlo, debes importarlo con: import time.
+
+# Algunas funciones útiles son:
+# 1. time.time(): devuelve el tiempo transcurrido desde dos putos de la ejecución del programa. Por ejemplo, puedes usarlo para medir el tiempo de ejecución de un fragmento de código.
+# 2. time.sleep(segundos): pausa la ejecución del programa durante el número de segundos especificado.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Módulo Timeit:
+# El modulo "timeit" proporciona una forma de medir el tiempo de ejecución de un fragmento de código.
+# Para usarlo, debes importar el módulo con: import timeit.
+
+# Algunas funciones útiles son:
+# 1. timeit.timeit("declaración(prueba_fun(10))", "código", number=1): mide el tiempo de ejecución del código especificado. Menos el número, lo demás va comentando con """ """.
+# 2. timeit.repeat("declaración(prueba_fun(10))", "código", repeat=3, number=1): mide el tiempo de ejecución del código especificado y lo repite. Menos el número, lo demás va comentando con """ """.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Módulo Math:
+# El módulo math proporciona funciones matemáticas.
+# Para usarlo, debes importarlo con: import math.
