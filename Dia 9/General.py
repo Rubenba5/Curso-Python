@@ -122,3 +122,10 @@
 # 4. re.compile(r"expre. regular"): compila la expresión regular en un objeto Pattern. Por ejemplo, patron = re.compile(r"(\d{3})-(\d{3})-(\d{3})"). Se puede usar .group(1) para obtener primera parte.
 # 5. re.search(r"expre. regular", "texto"): busca la expresión regular en la cadena y devuelve un objeto Match. Para buscar, se pudede usar r"palabra|palabra2" para buscar dos palabras a la vez.
 # 6. re.findall(r"expre. regular", "texto"): busca todas las coincidencias de la expresión regular en la cadena y devuelve una lista excluyendolos.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Comprimir y Decomprimir archivos:
+# El módulo zipfile proporciona funciones para trabajar con archivos zip.
+# Para usarlo, debes importarlo con: import zipfile.
+
+# Algunas funciones útiles son:
