@@ -77,6 +77,48 @@
 # 1. math.floor(x): devuelve el redondeandolo al número entero más bajo de x.
 # 2. math.ceil(x): devuelve el redondeandolo al número entero más alto de x.
 # 3. math.pi: devuelve el valor de pi.
-# 4. math.log(n.º expuesto, al que lo vas a exponer): devuelve el logaritmo natural del numero a exponer.
+# 4. math.log"base"(del numero a exponer): devuelve el logaritmo natural del numero a exponer.
 # 5. math.tan(x): devuelve la tangente de x.
 # 6. math.cos(x): devuelve el coseno de x.
+# 7. math.sqrt(x): devuelve la raíz cuadrada de x.
+# 8. factorial(x): devuelve el factorial de x. Para usar esta función, debes importar el módulo con: from math import factorial.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Módulo RE:
+# El módulo re proporciona funciones para trabajar con expresiones regulares.
+# Las expresiones regulares son una forma de buscar y manipular cadenas de texto.
+# Para usarlo, debes importarlo con: import re.
+# Para usarlo, hay que poner el prefijo r"\d" antes de la cadena y completarla con \d que significan digitos.
+# Por ejemplo, r"\d{3}" busca tres dígitos consecutivos.
+
+#Hay tres tipos de caracteres especiales:
+# 1. \d: digito numerico. Ejemplo: r"\d{3}" busca tres dígitos consecutivos.
+# 2. \w: caracter alfanumerico. Ejemplo: r"\w{3}" busca tres letras consecutivas.
+# 3. \s: espacio en blanco. Ejemplo: r"\s{3}" busca tres espacios consecutivos.
+# 4. \D: no digito numerico. Ejemplo: r"\D{3}" busca tres caracteres que no son dígitos consecutivos.
+# 5. \W: no caracter alfanumerico. Ejemplo: r"\W{3}" busca tres caracteres que no son alfanuméricos consecutivos.
+# 6. \S: no espacio en blanco. Ejemplo: r"\S{3}" busca tres caracteres que no son espacios consecutivos.
+
+# Hay tres tipos de cuantificadores:
+# 1. +: uno o más. Ejemplo: r"\d+" busca uno o más dígitos consecutivos.
+# 2. {n}: se repiten exactamente un n.º de n. Ejemplo: r"\d{3}" busca exactamente tres dígitos consecutivos.
+# 3. {n, m}: se repide de n a m vecees. Ejemplo: r"\d{3, 5}" busca entre tres y cinco dígitos consecutivos.
+# 4. {n, }: desde n hacia arriba. Ejemplo: r"\d{3, }" busca tres dígitos o más consecutivos.
+# 5. *: cero o más. Ejemplo: r"\d*" busca cero o más dígitos consecutivos.
+# 6. ?: cero o uno. Ejemplo: "casas?", busca "casa" o "casas".
+
+# Hay seis tipos de letras comodin:
+# 1. ".": cualquier caracter. Ejemplo: r".{3}" busca cualquier caracter tres veces.
+# 2. "|": o. Ejemplo: r"casa|perro" busca "casa" o "perro".
+# 3. "^": inicio de la cadena. Ejemplo: r"^casa" busca "casa" al inicio de la cadena.
+# 4. "$": final de la cadena. Ejemplo: r"casa$" busca "casa" al final de la cadena.
+# 5. "[]": conjunto de caracteres. Ejemplo: r"[abc]" busca "a", "b" o "c".
+# 6. "+": uno o más. Ejemplo: r"[abc]+" busca "a", "b" o "c" una o más veces.
+
+# Algunos métodos útiles son:
+# 1. re.search("palabra", "texto"): busca la expresión regular en la cadena y devuelve un objeto Match. Se puede utilizar .group() para obtener la palabra.
+# 2. re.findall("palabra", "texto"): busca todas las coincidencias de la expresión regular en la cadena y devuelve una lista de objetos Match. Se puede utilizar .span() para obtener la ubicación.
+# 3. re.finditer("palabra", "texto"): busca todas las coincidencias de la expresión regular en la cadena y devuelve un iterador de objetos Match. Se puede utilizar .span() para obtener la ubicación.
+# 4. re.compile(r"expre. regular"): compila la expresión regular en un objeto Pattern. Por ejemplo, patron = re.compile(r"(\d{3})-(\d{3})-(\d{3})"). Se puede usar .group(1) para obtener primera parte.
+# 5. re.search(r"expre. regular", "texto"): busca la expresión regular en la cadena y devuelve un objeto Match. Para buscar, se pudede usar r"palabra|palabra2" para buscar dos palabras a la vez.
+# 6. re.findall(r"expre. regular", "texto"): busca todas las coincidencias de la expresión regular en la cadena y devuelve una lista excluyendolos.
