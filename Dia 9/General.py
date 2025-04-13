@@ -72,3 +72,11 @@
 # Módulo Math:
 # El módulo math proporciona funciones matemáticas.
 # Para usarlo, debes importarlo con: import math.
+
+# Algunas funciones útiles son:
+# 1. math.floor(x): devuelve el redondeandolo al número entero más bajo de x.
+# 2. math.ceil(x): devuelve el redondeandolo al número entero más alto de x.
+# 3. math.pi: devuelve el valor de pi.
+# 4. math.log(n.º expuesto, al que lo vas a exponer): devuelve el logaritmo natural del numero a exponer.
+# 5. math.tan(x): devuelve la tangente de x.
+# 6. math.cos(x): devuelve el coseno de x.
