@@ -17,7 +17,9 @@
 # 1. os.getcwd(): devuelve el directorio de trabajo actual.
 # 2. os.listdir(): devuelve una lista de los archivos y directorios en un directorio dado.
 # 3. os.unlink(): elimina un archivo o enlace simbólico.
-# 4. os.rmdir(): eliminar un nuevo directorio.
+# 4. os.rmdir(): eliminar un directorio.
+# 5. os.walk("ruta"): devuelve una lista de tuplas que contienen el nombre del directorio, una lista de subdirectorios y una lista de archivos en un directorio dado.
+# Ejemplo: For: for dir, subdir, archivo in os.walk("ruta"):...
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Módulo Shutil:
@@ -27,3 +29,27 @@
 # Algunas funciones útiles son:
 # 1. shutil.move("archivo", "ruta"): mueve un archivo o directorio a una nueva ubicación.
 # 2. shutil.rmtree("directorio"): elimina un directorio y su contenido de forma recursiva.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Módulo Send to Trash:
+# El módulo send2trash proporciona una forma de enviar archivos y directorios a la papelera de reciclaje.
+# Para usarlo, primero debes instalarlo con el siguiente comando: pip install send2trash
+# Para ejecutar el comando, debes importar el módulo con: from send2trash import send2trash
+# Finalmente: send2trash.send2trash("archivo, dir"): envía un archivo o directorio a la papelera de reciclaje.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Módulo Datetime:
+# El módulo datetime proporciona clases para trabajar con fechas y horas.
+# Para poder usar este módulo, debes importarlo con: import datetime.
+# Para obtener la fecha y hora actual, puedes usar: datetime.datetime.now() o el atributo .today().
+
+# Algunas funciones útiles son:
+# 1. datetime.time(hora, mins, seg): devuelve la hora deseada. El formato es de 24 horas.
+# 2. datetime.date(año, mes, día): devuelve la fecha deeseada. Tiene un atributo llaamado .cttime() que devuelve la fecha en formato de cadena.
+# 3. datetime(dia, mes, año): devuelve la fecha deseada. Para usarlo, from datetime import datetime.
+# 4. date(año, mes, día): devuelve la fecha deseada. Para usarlo, from datetime import date.
+# 5. datetime.now(): devuelve la fecha y hora actual. Para usarlo, from datetime import datetime.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Modulos para medir el Tiempo:
+# El módulo "time" proporciona funciones para trabajar con el tiempo.
