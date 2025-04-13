@@ -66,8 +66,7 @@
 
 # Algunas funciones útiles son:
 # 1. timeit.timeit("declaración(prueba_fun(10))", "código", number=1): mide el tiempo de ejecución del código especificado.
-# 2. timeit.repeat("declaración(prueba_fun(10))", "código", repeat=3, number=1): mide el tiempo de ejecución del código especificado y lo repite.
-# En ambas, menos el número, lo demás va comentando con """ """.
+# Menos el número, lo demás va comentando con """ """.
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Módulo Math:
