@@ -48,17 +48,18 @@ def monstrar(dic, duracion):
     Fecha = datetime.date.today()
     Fecha_Ordenada = f"{Fecha.day}/{Fecha.month}/{Fecha.year}"
 
+    print("")
     print(f"Fecha de búsqueda: {Fecha_Ordenada}")
     print("")
     print("Archivo\t   |    Número de Serie")
     print("-------------------------------")
 
     for archivo, coincidencia in dic.items():
-        print(f"{archivo}\t{coincidencia}")
         if coincidencia == "No encontrado":
             pass
 
         else:
+            print(f"{archivo}\t{coincidencia}")
             Contador += 1
 
     print("")
