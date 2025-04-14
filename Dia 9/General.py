@@ -126,6 +126,12 @@
 # -------------------------------------------------------------------------------------------------------------------- #
 # Comprimir y Decomprimir archivos:
 # El módulo zipfile proporciona funciones para trabajar con archivos zip.
-# Para usarlo, debes importarlo con: import zipfile.
+# Para usarlos, debes importarlo con: import zipfile & import shutil.
 
-# Algunas funciones útiles son:
+# Algunas funciones útiles de zipfile son:
+# zipzipfile.ZipFile("archivo.zip", "w"): crea un archivo zip. Para agregar archivos, usa el metodo .write("archivo").
+# zipzipfile.ZipFile("archivo.zip", "r"): abre un archivo zip. Para extraer archivos, usa el metodo .extractall("directorio").
+
+# Algunos métodos útiles de shutil son:
+# shutil.make_archive("archivo_nombre", "zip", "directorio"): crea un archivo zip a partir de un directorio.
+# shutil.unpack_archive("archivo.zip", "Nombre_Carpeta", ("ruta"), zip): extrae un archivo zip en un directorio.
