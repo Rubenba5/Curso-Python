@@ -134,4 +134,4 @@
 
 # Algunos métodos útiles de shutil son:
 # shutil.make_archive("archivo_nombre", "zip", "directorio"): crea un archivo zip a partir de un directorio.
-# shutil.unpack_archive("archivo.zip", "Nombre_Carpeta", ("ruta"), zip): extrae un archivo zip en un directorio.
+# shutil.unpack_archive("archivo.zip", "Nombre_Carpeta", ("ruta"), "zip"): extrae un archivo zip en un directorio.
