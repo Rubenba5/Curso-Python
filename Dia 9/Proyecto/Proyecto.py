@@ -22,12 +22,12 @@ def buscar_archivos(ruta):
 
 
 # Comprobar
-def comprobar_archivo(lista):
+def comprobar_archivo(dic):
     Patron = r"N\w{3}-\d{5}"
     Dic = {}
 
-    for archivo in lista:
-        Ruta_Nueva = Path(lista[archivo], archivo)
+    for archivo in dic:
+        Ruta_Nueva = Path(dic[archivo], archivo)
         Archivo_Abrir = open(Ruta_Nueva, "r")
         Lineas = Archivo_Abrir.readlines()
         Unir = "".join(Lineas)
