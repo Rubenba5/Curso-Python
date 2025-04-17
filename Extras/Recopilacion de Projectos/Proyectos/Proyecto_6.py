@@ -1,72 +1,120 @@
-from random import choice
+# Librerias
+import os
+from os import system
+from pathlib import *
+import shutil
 
+# Cosas Necesarias
+ruta = Path("C:/Users/Ruben/Desktop/Python/Curso-Python/Extras/Recopilacion de Projectos/Proyectos/Recursos_6") #Si quieres probarlo cambia la ruta
+Numero_Recetas = 0
+Bucle = 0
+recetas = ruta.glob("**/*.txt")
 
-# Elegir palabra
-def elegir_palabra():
-    palabras = ["python", "programacion", "desarrollador", "computadora", "teclado", "pantalla"]
-    elegida = choice(palabras)
-    return elegida.lower()
+for archivo in recetas:
+    Numero_Recetas += 1
 
+# Bienvenida
+def bienvenida(ruta1, numero_recetas):
 
-# Mostrar guiones
-def mostrar_guiones(palabra):
-    lista = ["-"] * len(palabra)
-    lista_a_imprimir = " ".join(lista)
+    print("¡Bienvenido de nuevo!")
+    print(f"Las recetas estan en: {ruta1}")
+    print(f"Tienes {numero_recetas} recetas en tu recetario.")
     print("")
-    print(lista_a_imprimir)
-    return lista
+
+# Menu Despliegue
+def menu_despligue():
+
+    print("[1] Leer receta\n[2] Crear Receta\n[3] Crear Categoria\n[4] Eliminar Receta\n[5] Eliminar Categoria\n[6] Finalizar Programa")
+    print("")
+
+# Seleccion
+def menu_seleccion():
+
+    Seleccion = input("Elije una opción para continuar: ")
+    while Seleccion not in "123456":
+        Seleccion = input("Elije una opción para continuar: ")
+
+    return Seleccion
+
+# [1] Leer receta
+def opcion_1(ruta1):
+
+    Categorias = input("Introduce la Categoria deseada: ")
+    Categorias_Ruta = Path(ruta1, Categorias)
+    Receta = input("Que receta quiere leer: ")
+    Ruta_Final = Path(ruta1, Categorias_Ruta, Receta+".txt")
+    Archivo_a_Leer = open(Ruta_Final, "r")
+    print("")
+    print(Archivo_a_Leer.readlines())
+
+# [2] Crear Receta
+def opcion_2(ruta1):
+
+    Categorias = input("Introduce la Categoria deseada: ")
+    Categorias_Ruta = Path(ruta1, Categorias)
+
+    Receta = input("Que receta quiere crear: ")
+    Ruta_Final = Path(ruta1, Categorias_Ruta, Receta+".txt")
+
+    Archivo_a_Crear = open(Ruta_Final, "w")
+    Texto = input(f"Que desea escribir en esta receta ({Receta}): ")
+    Archivo_a_Crear.write(Texto)
+
+# [3] Crear Categoria
+def opcion_3(ruta1):
+
+    Categorias = input("Introduce el nombre de la nueva categoria:  ")
+    Categorias_Ruta = Path(ruta1, Categorias)
+    os.mkdir(Categorias_Ruta)
+
+# [4] Eliminar Receta
+def opcion_4(ruta1):
+
+    Categorias = input("Introduce la Categoria deseada: ")
+    Categorias_Ruta = Path(ruta1, Categorias)
+    Receta = input("Que receta quiere leer: ")
+    Ruta_Final = Path(ruta1, Categorias_Ruta, Receta+".txt")
+    os.remove(Ruta_Final)
+
+# [5] Eliminar Categoria
+def opcion_5(ruta1):
+
+    Categorias = input("Introduce la Categoria deseada: ")
+    Categorias_Ruta = Path(ruta1, Categorias)
+    shutil.rmtree(Categorias_Ruta)
+
+# [5] Eliminar Categoria
+def opcion_6():
+    quit()
 
 
-# Pedir letra al usuario
-def pedir_letra():
-    letra = ""
-    while letra not in "abcdefghijklmnñopqrstuvwxyz" or len(letra) != 1:
-        letra = input("Ingresa la letra deseada a continuación: ").lower()
-    return letra
 
+# Ejecucion
+while Bucle == 0:
+    print("")
+    bienvenida(ruta, Numero_Recetas)
+    menu_despligue()
+    Seleccion_Definitiva = menu_seleccion()
+    if Seleccion_Definitiva == "1":
+        opcion_1(ruta)
 
-# Esta letra en palabra y vidas
-def letra_en_palabra(palabra, letra_importada, lista, Vidas, lista_fallos, lista_acietos):
+    elif Seleccion_Definitiva == "2":
+        opcion_2(ruta)
 
-        if letra_importada in palabra and letra_importada not in lista_acietos:
-            lista_acietos.append(letra_importada)
-            for posicion, letra_investigada in enumerate(palabra):
-                if letra_importada == letra_investigada:
-                    lista[posicion] = letra_importada
-            Cambio_a_imprimir = " ".join(lista)
-            print(Cambio_a_imprimir)
+    elif Seleccion_Definitiva == "3":
+        opcion_3(ruta)
 
-        elif letra_importada in palabra and letra_importada in lista_acietos:
-            print("¡Ya has adivinado esta letra!")
+    elif Seleccion_Definitiva == "4":
+        opcion_4(ruta)
 
-        else:
-            lista_fallos.append(letra_importada)
-            Vidas -= 1
-            lista_a_ensenar = ", ".join(lista_fallos)
-            print(f"Las letras ({lista_a_ensenar}) no están en la palabra. Te quedan {Vidas} intentos.")
-        return Vidas
+    elif Seleccion_Definitiva == "5":
+        opcion_5(ruta)
 
+    elif Seleccion_Definitiva == "6":
+        opcion_6()
+        Bucle = 1
 
-# Ejecución del juego
-palabra1 = elegir_palabra()
-lista_guiones = mostrar_guiones(palabra1)
-Vidas = 8
-lista_fallos = []
-lista_acietos = []
-
-while "-" in lista_guiones and Vidas > 0:
-    letra1 = pedir_letra()
-    Vidas = letra_en_palabra(palabra1, letra1, lista_guiones, Vidas, lista_fallos, lista_acietos)
-
-    if Vidas == 0:
-        print(f"¡Has perdido! La palabra era: {palabra1}")
-        quit()
-
-if "-" not in lista_guiones:
-    print("¡Felicidades! Has adivinado la palabra.")
-
-
-
+    system("cls")
 
 
 
