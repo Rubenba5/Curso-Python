@@ -25,14 +25,16 @@
 # -------------------------------------------------------------------------------------------------------------------- #
 # Ejemplo de Web Scraping con BeautifulSoup y Requests:
 # Se utiliza la libreria requests para hacer una solicitud HTTP a una página web y obtener su contenido HTML. Luego, se utiliza BeautifulSoup para analizar el HTML y extraer información específica.
-# Importar: import requests y import bs4.
+# Importar: import requests (realizar solicitud) y import bs4 (analizar codigo fuente).
 
 # Algunas funciones utiles de Requests:
 # 1. requests.get("url"): Realiza una solicitud GET a la URL especificada y devuelve la respuesta.
 # 3. variable.txt: Devuelve el codigo fuente como texto.
 
 # Algunas funciones utiles de BeautifulSoup:
-# 1. bs4.BeautifulSoup(variable.txt, "lxml"): Analiza el contenido HTML y crea un objeto BeautifulSoup.
-# 2. variable.selector("etiqueta"): Analiza en el codigo y imprime quienes tienen esa etiqueta.
+# 1. bs4.BeautifulSoup(variable.txt, "lxml"): Analiza el contenido HTML y crea un objeto BeautifulSoup para poder utilizarlo.
+# 2. variable.selector("etiqueta"): Analiza en el codigo y imprime quienes tienen esa etiqueta en una lista.
 # 3. variable.get_text(): Devuelve el texto dentro de la etiqueta seleccionada pero si la etiqueta.
+
+
 
