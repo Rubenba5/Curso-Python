@@ -91,7 +91,7 @@ def Descripcion_10(dia, fecha, descripcion, etiqueta):
     print(f"{negrita("Las etiquetas de este projecto son:")} {etiqueta}")
     print("")
     print(f"{negrita("Demonstración:")}")
-    print("Este proyecto se ejecuta en una pestaña aparte.")
+    print("Este proyecto se ejecuta en una pestaña diferente.")
     print("")
 
 
@@ -131,7 +131,7 @@ Data_6 = Proyectos("Recetario", "Este código le va a dar primero la bienvenida 
 Data_7 = Proyectos("Cuenta Bancaria", "El cliente también va a tener tres métodos. El primero va a ser uno de los\nmétodos especiales y es el que permite que podamos imprimir a nuestro cliente. Este método\nva a permitir que cuando el código pida imprimir Cliente, se muestren todos sus datos,\nincluyendo el balance de su cuenta. Luego, un método llamado Depositar, que le va a permitir\ndecidir cuánto dinero quiere agregar a su cuenta. Y finalmente, un tercer método llamado\nRetirar, que le permita decidir cuánto dinero quiere sacar de su cuenta.", "#Python", "10/04/2025", "Día 7", "7")
 Data_8 = Proyectos("Consola de Turnos", "Vas a crear el tunero para una farmacia que tiene tres áreas de atención:\nperfumería, farmacia (que es donde venden los medicamentos), y cosméticos. Tu programa le\ntiene que preguntar al cliente a cuál de las áreas desea dirigirse, y le va a dar un número de\nturno según a qué área se dirija. Por ejemplo, si elige cosmética le va a dar el número C-54\n(“C” de cosmética). Luego de eso, nos va a preguntar si queremos sacar otro turno. Esto, en\nrealidad, es para simular si viene un nuevo cliente. Y repetirá todo el proceso.", "#Python", "13/04/2025", "Día 8", "8")
 Data_9 = Proyectos("Buscador de Números en Serie", "Un programa diseñado para buscar números de serie con un formato específico dentro de un árbol de carpetas y archivos .txt.\nEl usuario descomprime una carpeta que contiene subcarpetas y múltiples archivos de texto. Aunque la mayoría del contenido es irrelevante, algunos archivos contienen números de serie válidos.\nEl formato de número de serie buscado es: una letra 'N' seguida de tres caracteres alfabéticos, un guion y cinco números. Ejemplo: Nryu-12365.\nEl programa recorre todas las carpetas y archivos utilizando el módulo os (especialmente el método walk()), y emplea expresiones regulares para detectar los patrones válidos.\nCada hallazgo se muestra en una tabla en consola con la fecha actual, los nombres de los archivos y los números de serie encontrados.\nAdemás, se indica cuántos números se encontraron y cuánto tiempo tomó la búsqueda, redondeando este tiempo hacia arriba.\nSe utilizan los módulos datetime para obtener la fecha en formato dd/mm/aa, y time para calcular la duración.\nEl programa está pensado como un ejercicio práctico para afianzar conocimientos sobre manejo de archivos, estructuras de carpetas, regex y presentación de resultados en consola.", "#Python", "14/02/2025", "Día 9", "9")
-Data_10 = Proyectos("Invasión Espacial", "Este proyecto trata sobre: Un juego en Pygame que es una versión del clásico 'Space Invaders'.\nEl jugador controla una nave espacial que puede moverse lateralmente y disparar balas para eliminar enemigos.\nLos enemigos se desplazan horizontalmente y descienden al tocar los bordes de la pantalla.\nSi alguno de ellos llega a la parte inferior, el juego termina.\nSe incluyen efectos de sonido para los disparos y las colisiones, lo cual mejora la experiencia de juego.\nAdemás, se incorpora un sistema de puntaje que se muestra en todo momento, y un mensaje en pantalla indica cuando el juego ha finalizado.", "#Python, #Pygame", "17/04/2025", "Día 10", "10")
+Data_10 = Proyectos("Invasión Espacial", "Un juego en Pygame que es una versión del clásico 'Space Invaders'.\nEl jugador controla una nave espacial que puede moverse lateralmente y disparar balas para eliminar enemigos.\nLos enemigos se desplazan horizontalmente y descienden al tocar los bordes de la pantalla.\nSi alguno de ellos llega a la parte inferior, el juego termina.\nSe incluyen efectos de sonido para los disparos y las colisiones, lo cual mejora la experiencia de juego.\nAdemás, se incorpora un sistema de puntaje que se muestra en todo momento, y un mensaje en pantalla indica cuando el juego ha finalizado.", "#Python, #Pygame", "17/04/2025", "Día 10", "10")
 
 
 # Variables / Listas
@@ -150,9 +150,9 @@ Lista_de_Verificacion = [Data_1.dia, Data_1.titulo, Data_1.numero,
 
                          ]
 
-Lista_de_Verificacion_Volver_A_Preguntar = ["Salir", "Volver al Menu", "volver al menu", "Volver al menu", "salir", "VOLVER AL MENU", "SALIR"]
 Lista_de_Verificacion_Salir = ["Salir", "salir", "SALIR"]
 Lista_de_Verificacion_Volver = ["VOLVER", "volver", "Volver", "Volver al Menu", "volver al menu", "Volver al menu", "VOLVER AL MENU"]
+Lista_de_Verificacion_Volver_A_Preguntar = Lista_de_Verificacion_Salir + Lista_de_Verificacion_Volver
 
 
 # Ejecucion del Codigo
