@@ -40,6 +40,7 @@ def Presentacion():
     print(f"Día 16: ")
     print("")
     Pregunta = input(f"{negrita("¿Que projecto deseas ejecutar?")} ")
+
     while Pregunta not in Lista_de_Verificacion:
         print("")
         print("🚨⏐ Por favor, introduzca el Nombre del Proyecto / El Día con su nº / Nº del Proyecto correctamente.")
