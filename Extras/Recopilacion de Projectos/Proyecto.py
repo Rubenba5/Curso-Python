@@ -159,6 +159,7 @@ while Bucle:
     try:
         Limpiar_pantalla()
         Respuesta = Presentacion()
+
         if Respuesta == Data_1.dia or Respuesta == Data_1.titulo or Respuesta == Data_1.numero:
             Limpiar_pantalla()
             Descripcion(Data_1.dia, Data_1.fecha, Data_1.descripcion, Data_1.etiqueta)
