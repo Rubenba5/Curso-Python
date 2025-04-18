@@ -168,7 +168,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
@@ -180,7 +180,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
@@ -192,7 +192,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
@@ -204,7 +204,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
@@ -216,7 +216,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
@@ -228,7 +228,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
@@ -240,7 +240,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
@@ -252,7 +252,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
@@ -264,7 +264,7 @@ while Bucle:
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
-                Limpiar_pantalla()
+                pass
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
