@@ -1,3 +1,7 @@
+# Indicaciones:
+# Los recursos comprimidos, hay que descomprimirlos en la ruta base de tu ordenador, en mi caso: "C:\Users\Ruben".
+
+
 # Importar Días
 import Recopilacion
 
