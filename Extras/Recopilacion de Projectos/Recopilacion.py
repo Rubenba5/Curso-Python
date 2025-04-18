@@ -25,7 +25,7 @@ def Calculador_impuestos():
     Vendido = int(Vendido)
     Vendido = round(Vendido*13/100,2)
     print("")
-    print (f"Ok {Nombre}. Este mes has pagado {Vendido} euros de impuestos.")
+    print (f"Ok {Nombre}. Este mes has pagado {Vendido} euros de comisiones.")
 
 
 # Dia 3
