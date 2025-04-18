@@ -34,7 +34,7 @@
 # Algunas funciones utiles de BeautifulSoup:
 # 1. bs4.BeautifulSoup(variable.txt, "lxml"): Analiza el contenido HTML y crea un objeto BeautifulSoup para poder utilizarlo.
 # 2. variable.selector("etiqueta"): Analiza en el codigo y imprime quienes tienen esa etiqueta en una lista.
-# 3. variable.get_text(): Devuelve el texto dentro de la etiqueta seleccionada pero si la etiqueta.
+# 3. variable.get_text(): Devuelve el texto dentro de la etiqueta seleccionada, pero sí la etiqueta.
 
 
 
