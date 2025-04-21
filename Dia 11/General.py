@@ -26,15 +26,20 @@
 # Ejemplo de Web Scraping con BeautifulSoup y Requests:
 # Se utiliza la libreria requests para hacer una solicitud HTTP a una página web y obtener su contenido HTML. Luego, se utiliza BeautifulSoup para analizar el HTML y extraer información específica.
 # Importar: import requests (realizar solicitud) y import bs4 (analizar codigo fuente).
+# Para descargar una imagen, se utiliza un open("nombre_imagen.jpg", "wb") para abrir el archivo en modo binario y escribiendo el binario para guardar la imagen.
 
 # Algunas funciones utiles de Requests:
 # 1. requests.get("url"): Realiza una solicitud GET a la URL especificada y devuelve la respuesta.
-# 3. variable.txt: Devuelve el codigo fuente como texto.
+# 2. variable.txt: Devuelve el codigo fuente como texto.
+# 3. variable.content: Devuelve el codigo fuente tipo binario.
 
 # Algunas funciones utiles de BeautifulSoup:
 # 1. bs4.BeautifulSoup(variable.txt, "lxml"): Analiza el contenido HTML y crea un objeto BeautifulSoup para poder utilizarlo.
 # 2. variable.selector("etiqueta"): Analiza en el codigo y imprime quienes tienen esa etiqueta en una lista.
-# 3. variable.get_text(): Devuelve el texto dentro de la etiqueta seleccionada, pero sí la etiqueta.
-
-
+# 3. variable.getText(): Devuelve el texto dentro de la etiqueta seleccionada, pero sí la etiqueta.
+# 3. soup.select('div'): Devuelve una lista de todas las etiquetas div en el documento HTML. Se utiliza para esto las ("").
+# 4. soup.select("#estilo_4"): Devuelve una lista de todas los elementos con el id "estilo_4" en el documento HTML. Se utiliza para esto las ("#").
+# 5. soup.select(".estilo_4"): Devuelve una lista de todas los elementos con la clase "estilo_4" en el documento HTML. Se utiliza para esto las (".").
+# 6. soup.select("div span"): Devuelve una lista de todas los elementos span dentro de los elementos div en el documento HTML.
+# 7. soup.select("div > span"): Devuelve una lista de todos los elementos span que son hijos directos de los elementos div en el documento HTML.
 
