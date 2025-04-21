@@ -1,4 +1,6 @@
 # Librerias
+import pygame
+from pygame import mixer
 import os
 from os import system
 from pathlib import *
@@ -8,9 +10,7 @@ import re
 import datetime
 import time
 import math
-import pygame
 import io
-from pygame import mixer
 import random
 import bs4
 import requests
@@ -406,15 +406,7 @@ def elegir_turno():
     def Preguntar_De_Nuevo():
         print("")
         Pregunta = input("¿Desea sacar otro ticket?: ")
-        if Pregunta == "Si" or Pregunta == "si":
-            print("Las secciones disponibles son: Perfumeria, Cosmetica y Farmacia. ")
-            Eleccion = input("Ha que sección se quiere derigir: ")
-            return Eleccion
-
-        elif Pregunta == "No" or Pregunta == "no":
-            print("")
-            print("¡Hasta Pronto!")
-            quit()
+        return Pregunta
 
     # Ejecución
     Numero_P = Perfumeria_Cuenta()
@@ -426,14 +418,38 @@ def elegir_turno():
         if Eleccion == "Perfumeria":
             Perfumeria(next(Numero_P))
             Eleccion = Preguntar_De_Nuevo()
+            if Eleccion == "Si" or Eleccion == "si":
+                print("Las secciones disponibles son: Perfumeria, Cosmetica y Farmacia. ")
+                Preguntar()
+
+            elif Eleccion == "No" or Eleccion == "no":
+                print("")
+                print("¡Hasta Pronto!")
+                Bucle = 1
 
         elif Eleccion == "Farmacia":
             Farmacia(next(Numero_F))
             Eleccion = Preguntar_De_Nuevo()
+            if Eleccion == "Si" or Eleccion == "si":
+                print("Las secciones disponibles son: Perfumeria, Cosmetica y Farmacia. ")
+                Preguntar()
+
+            elif Eleccion == "No" or Eleccion == "no":
+                print("")
+                print("¡Hasta Pronto!")
+                Bucle = 1
 
         elif Eleccion == "Cosmetica":
             Cosmetica(next(Numero_C))
             Eleccion = Preguntar_De_Nuevo()
+            if Eleccion == "Si" or Eleccion == "si":
+                print("Las secciones disponibles son: Perfumeria, Cosmetica y Farmacia. ")
+                Preguntar()
+
+            elif Eleccion == "No" or Eleccion == "no":
+                print("")
+                print("¡Hasta Pronto!")
+                Bucle = 1
 
 
 # Dia 9
