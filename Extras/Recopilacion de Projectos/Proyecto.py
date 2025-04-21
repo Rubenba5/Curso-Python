@@ -1,6 +1,6 @@
 # Indicaciones:
 # Los recursos comprimidos, hay que descomprimirlos en la ruta base de tu ordenador, en mi caso: "C:\Users\Ruben".
-# Los archivos "Proyecto.py" y "Recopilaciones.py" tienen que estar en el mismo directorio.
+# Los archivos "Proyecto.py" y "Recopilacion.py" tienen que estar en el mismo directorio.
 # Debes activar en este archivo la cualidad llamada "Emulate Terminal In Output Console".
 
 
