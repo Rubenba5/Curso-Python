@@ -751,5 +751,4 @@ def web_scraping():
 
     # Ver libros de 4 y 5 estrellas en consola
     for libro in titulos_rating_alto:
-        print("Los libros de más de 4 estrellas son:")
         print(libro)
