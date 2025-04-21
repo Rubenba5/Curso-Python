@@ -54,7 +54,7 @@ def Limpiar_pantalla():
     system("cls")
 
 
-# Función Negrita [\033[1m → Negrita, \033[3m → Cursiva, \033[4m → Subrayado, \033[0m → Reset (vuelve al estilo normal]
+# Función Negrita + Subrayado [\033[1m → Negrita, \033[3m → Cursiva, \033[4m → Subrayado, \033[0m → Reset (vuelve al estilo normal]
 def negrita_y_subrayado(texto):
     return f"\033\033[4m{texto}\033[0m"
 
