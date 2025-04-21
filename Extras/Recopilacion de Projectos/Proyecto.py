@@ -103,9 +103,9 @@ def Volver_preguntar():
 
     while Volver_Preguntar not in Lista_de_Verificacion_Volver_A_Preguntar:
         print("")
-        print("🚨⏐ Por favor, introduzca el salir o volver al menu correctamente.")
+        print('🚨⏐ Por favor, introduzca salir o volver al menu correctamente.')
         print("")
-        Volver_Preguntar = input(f"{negrita("¿Que projecto deseas ejecutar?")} ")
+        Volver_Preguntar = input(f"{negrita("¿Qué deseas hacer a continuación? ")} ")
 
     return Volver_Preguntar
 
