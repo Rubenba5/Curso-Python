@@ -28,7 +28,7 @@ def Calculador_impuestos():
     Vendido = round(Vendido*13/100,2)
     print("")
     print (f"Ok {Nombre}. Este mes has pagado {Vendido} euros de comisiones.")
-
+d
 
 # Dia 3
 def analizador_textos():
