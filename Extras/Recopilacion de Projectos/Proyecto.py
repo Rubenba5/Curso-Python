@@ -11,6 +11,9 @@ import Recopilacion
 # Librerias
 import datetime
 from os import system
+import tkinter
+from tkinter import ttk, messagebox
+from ttkbootstrap import Style
 
 
 # Dia de hoy
