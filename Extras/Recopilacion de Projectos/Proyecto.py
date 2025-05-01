@@ -36,7 +36,7 @@ def Presentacion():
     print(f"Día 9: {Data_9.titulo}")
     print(f"Día 10: {Data_10.titulo}")
     print(f"Día 11: {Data_11.titulo}")
-    print(f"Día 12: ")
+    print(f"Día 12: {Data_12.titulo}")
     print(f"Día 13: ")
     print(f"Día 14: ")
     print(f"Día 15: ")
@@ -83,7 +83,7 @@ def Descripcion(dia, fecha, descripcion, etiqueta):
 
 
 # Descripcion Día 10
-def Descripcion_10(dia, fecha, descripcion, etiqueta):
+def Descripcion_Modf(dia, fecha, descripcion, etiqueta):
     print(negrita(f"Este es el Proyecto del {dia}:"))
     print("")
     print(f"{negrita("Fecha:")} {fecha}")
@@ -147,6 +147,8 @@ Data_10 = Proyectos("Invasión Espacial", "Un juego en Pygame que es una versió
 
 Data_11 = Proyectos("Scraping de Libros", "Un proyecto en Python que realiza web scraping en la página 'Books to Scrape'.\nUtiliza las librerías `requests` y `BeautifulSoup` para recorrer automáticamente las 50 páginas del sitio web.\nExtrae e imprime en consola los títulos de los libros que tienen una calificación de 4 o 5 estrellas.\nEste proyecto muestra cómo automatizar la recopilación de datos relevantes desde páginas web estructuradas.\nEs ideal para aprender sobre el análisis de HTML, la navegación por múltiples páginas y el filtrado de información específica.", "#Python, #WebScraping, #BeautifulSoup, #Requests", "21/04/2025", "Día 11", "11")
 
+Data_12 = Proyectos("Gestor de Restaurantes", "Un sistema de facturación completo desarrollado en Python con la librería `tkinter`.\nIncluye una interfaz gráfica que permite seleccionar productos (comidas, bebidas y postres), calcular costos, aplicar impuestos y generar un recibo detallado.\nTambién incorpora una calculadora básica integrada y opciones para guardar el recibo en un archivo de texto.\nSe destacan conceptos como la gestión de estados en widgets, control de eventos con `Checkbutton` y `Entry`, y el uso de `StringVar` para enlazar datos entre la interfaz y la lógica del programa.", "#Python, #Tkinter, #InterfazGráfica, #Facturación, #GUI", "22/04/2025", "Día 12", "12")
+
 
 # Variables / Listas
 Bucle = True
@@ -161,7 +163,7 @@ Lista_de_Verificacion = [Data_1.dia, Data_1.titulo, Data_1.numero,
                          Data_9.dia, Data_9.titulo, Data_9.numero,
                          Data_10.dia, Data_10.titulo, Data_10.numero,
                          Data_11.dia, Data_11.titulo, Data_11.numero,
-
+                         Data_12.dia, Data_12.titulo, Data_12.numero,
 
                          ]
 
@@ -286,7 +288,7 @@ while Bucle:
 
         elif Respuesta == Data_10.dia or Respuesta == Data_10.titulo or Respuesta == Data_10.numero:
             Limpiar_pantalla()
-            Descripcion_10(Data_10.dia, Data_10.fecha, Data_10.descripcion, Data_10.etiqueta)
+            Descripcion_Modf(Data_10.dia, Data_10.fecha, Data_10.descripcion, Data_10.etiqueta)
             Recopilacion.juego()
             Bucle = False
 
@@ -301,6 +303,12 @@ while Bucle:
 
             elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
                 Bucle = False
+
+        elif Respuesta == Data_12.dia or Respuesta == Data_12.titulo or Respuesta == Data_12.numero:
+            Limpiar_pantalla()
+            Descripcion_Modf(Data_12.dia, Data_12.fecha, Data_12.descripcion, Data_12.etiqueta)
+            Recopilacion.mi_restaurante()
+            Bucle = False
 
     except:
         print("")
