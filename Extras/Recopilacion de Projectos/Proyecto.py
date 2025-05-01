@@ -11,9 +11,7 @@ import Recopilacion
 # Librerias
 import datetime
 from os import system
-import tkinter
-from tkinter import ttk, messagebox
-from ttkbootstrap import Style
+from tkinter import * # Importar TKINTER (interfaz grafica)
 
 
 # Dia de hoy
