@@ -37,7 +37,7 @@ def Presentacion():
     print(f"Día 10: {Data_10.titulo}")
     print(f"Día 11: {Data_11.titulo}")
     print(f"Día 12: {Data_12.titulo}")
-    print(f"Día 13: ")
+    print(f"Día 13: {Data_13.titulo}")
     print(f"Día 14: ")
     print(f"Día 15: ")
     print(f"Día 16: ")
@@ -149,6 +149,8 @@ Data_11 = Proyectos("Scraping de Libros", "Un proyecto en Python que realiza web
 
 Data_12 = Proyectos("Gestor de Restaurantes", "Un sistema de facturación completo desarrollado en Python con la librería `tkinter`.\nIncluye una interfaz gráfica que permite seleccionar productos (comidas, bebidas y postres), calcular costos, aplicar impuestos y generar un recibo detallado.\nTambién incorpora una calculadora básica integrada y opciones para guardar el recibo en un archivo de texto.\nSe destacan conceptos como la gestión de estados en widgets, control de eventos con `Checkbutton` y `Entry`, y el uso de `StringVar` para enlazar datos entre la interfaz y la lógica del programa.", "#Python, #Tkinter, #InterfazGráfica, #Facturación, #GUI", "22/04/2025", "Día 12", "12")
 
+Data_13 = Proyectos("Asistente Personal", "Un asistente virtual controlado por voz desarrollado en Python.\nUtiliza `speech_recognition` para interpretar comandos hablados y `pyttsx3` para responder con voz.\nPuede decir la hora y el día, abrir sitios web como YouTube o Google, buscar en Wikipedia, contar chistes, reproducir videos de YouTube, buscar en internet y consultar precios de acciones usando `yfinance`.\nIncluye manejo de errores por voz no reconocida o sin conexión.\nEjemplo de integración de múltiples librerías para crear una experiencia de usuario interactiva por voz.", "#Python, #AsistenteVirtual, #ReconocimientoVoz, #pyttsx3, #speechrecognition", "02/05/2025", "Día 13", "13")
+
 
 # Variables / Listas
 Bucle = True
@@ -164,6 +166,7 @@ Lista_de_Verificacion = [Data_1.dia, Data_1.titulo, Data_1.numero,
                          Data_10.dia, Data_10.titulo, Data_10.numero,
                          Data_11.dia, Data_11.titulo, Data_11.numero,
                          Data_12.dia, Data_12.titulo, Data_12.numero,
+                         Data_13.dia, Data_13.titulo, Data_13.numero,
 
                          ]
 
@@ -309,6 +312,18 @@ while Bucle:
             Descripcion_Modf(Data_12.dia, Data_12.fecha, Data_12.descripcion, Data_12.etiqueta)
             Recopilacion.mi_restaurante()
             Bucle = False
+
+        elif Respuesta == Data_13.dia or Respuesta == Data_13.titulo or Respuesta == Data_13.numero:
+            Limpiar_pantalla()
+            Descripcion(Data_13.dia, Data_13.fecha, Data_13.descripcion, Data_13.etiqueta)
+            Recopilacion.asistente_personal()
+            Respuesta_Preguntar = Volver_preguntar()
+
+            if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
+                pass
+
+            elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
+                Bucle = False
 
     except:
         print("")
