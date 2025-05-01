@@ -15,7 +15,7 @@ from tkinter import * # Importar TKINTER (interfaz grafica)
 
 
 # Dia de hoy
-Fecha = datetime.date.today()
+Fecha = datetime.datetime.now()
 Dia_Hoy = f"{Fecha.day}/{Fecha.month}/{Fecha.year}"
 
 
