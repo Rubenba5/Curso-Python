@@ -1586,7 +1586,7 @@ def asistente_personal():
                 hablar("Me voy a descansar, cualquier cosa me avisas.")
                 comenzar = False
 
-            elif "funcionalidades" in pedido:
+            elif "funcionalidades" in pedido or "qué puedes hacer" in pedido:
                 hablar("Estoy programada para poder contarte chistes, buscar acciones en la bolsa, reproducir videos en youTube, buscar diferentes cosas en wikipedia, decirte qué día o hora es, abrir el navegador y youtube")
 
     pedir_cosas()
