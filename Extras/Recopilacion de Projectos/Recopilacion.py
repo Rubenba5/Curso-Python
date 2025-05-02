@@ -1409,7 +1409,7 @@ def asistente_personal():
 
             # Informar que comenzo la grabacion
             print("")
-            print("Ya puedes hablar.")
+            print("🗣️⏐ Ya puedes hablar.")
 
             # Guardar lo que escuche como audio
             audio = r.listen(origen)
@@ -1419,7 +1419,7 @@ def asistente_personal():
                 pedido = r.recognize_google(audio, language="es-ES")
 
                 # Prueba de que pudo ingresar
-                print(f"Dijiste: {pedido}")
+                print(f"🎤⏐ Se ha grabado: {pedido}")
 
                 # Devolver pedido
                 return pedido
@@ -1428,7 +1428,6 @@ def asistente_personal():
             except sr.UnknownValueError:
 
                 # Prueba de que no comprendio el
-                print("Ups, no te entendi.")
 
                 # Devolver error
                 return "Sigo esperando"
@@ -1436,7 +1435,7 @@ def asistente_personal():
             except sr.RequestError:
 
                 # Prueba de que no comprendio el audio
-                print("Ups, no hay servicio")
+                print("🚨⏐ No hay servicio de internet.")
 
                 # Devolver error
                 return "Sigo esperando"
@@ -1444,7 +1443,7 @@ def asistente_personal():
             # Eror inesperado
             except:
                 # Prueba de que no comprendio el audio
-                print("Ups, algo ha salido mal")
+                print("🚨⏐ Algo ha salido mal.")
 
                 # Devolver error
                 return "Sigo esperando"
