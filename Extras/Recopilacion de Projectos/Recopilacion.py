@@ -1,30 +1,3 @@
-# Librerias
-import pygame
-from pygame import mixer
-import os
-from os import system
-from pathlib import *
-import shutil
-from random import *
-import re
-import datetime
-import time
-import math
-import io
-import random
-import bs4
-import requests
-from platform import release
-from tkinter import * # Importar TKINTER (interfaz grafica)
-from tkinter import filedialog, messagebox # Guardar
-import pyttsx3 # Texto a Voz
-import speech_recognition as sr # Voz a Texto
-import pywhatkit # Buscar en internet
-import yfinance as yf # Consultar la Bolsa
-import pyjokes # Chistes
-import webbrowser # Navegar en Internet
-import wikipedia # Wikipedia
-
 # Dia 1
 def Nombre_Cerveza():
     print("\nEl nombre de tu cerveza\n"+ "es '"+ (input("¿Qué serie te gusta? ")+" "+input("Qué animal es tu favorito? "))+ "'\n"+"¡Felicitaciones!")
@@ -90,6 +63,7 @@ def analizador_textos():
 
 # Dia 4
 def numero_aleatorio():
+    from random import randint
 
     # Variables
     Nombre = input("¿Cómo te llamas? ")
@@ -126,6 +100,8 @@ def numero_aleatorio():
 
 # Dia 5
 def elegir_palabra():
+    from random import choice
+
     # Elegir palabra
     def elegir_palabra():
         palabras = ["python", "programacion", "desarrollador", "computadora", "teclado", "pantalla"]
@@ -193,6 +169,10 @@ def elegir_palabra():
 
 # Dia 6
 def recetario():
+    import os
+    from pathlib import Path
+    import shutil
+
     # Cosas Necesarias
     ruta_base = Path.home()
     ruta = Path(ruta_base, "Proyectos", "Recursos_6") #Si quieres probarlo cambia la ruta
@@ -533,6 +513,13 @@ def buscar_numeros():
 
 # Dia 10
 def juego():
+    import pygame
+    from pygame import mixer
+    import random
+    import io
+    import math
+    from pathlib import Path
+
     ruta_base = Path.home()
     Recursos = Path(ruta_base, "Proyectos", "Recursos_10")
     print(Recursos)
@@ -744,6 +731,8 @@ def juego():
 
 # Dia 11
 def web_scraping():
+    import requests
+    import bs4
 
     # Url Base de la Página Web
     url_base = 'https://books.toscrape.com/catalogue/page-{}.html'
@@ -782,6 +771,11 @@ def web_scraping():
 
 # Dia 12
 def mi_restaurante():
+    import tkinter as tk
+    from tkinter import filedialog, messagebox
+    import datetime
+    import random
+
     # Funciones de Calculadora
     operador = ""
     def click_boton(numero):
@@ -1394,6 +1388,13 @@ def mi_restaurante():
 
 # Dia 13
 def asistente_personal():
+    import pyttsx3  # Texto a Voz
+    import speech_recognition as sr  # Voz a Texto
+    import pywhatkit  # Buscar en internet
+    import yfinance as yf  # Consultar la Bolsa
+    import pyjokes  # Chistes
+    import webbrowser  # Navegar en Internet
+    import wikipedia  # Wikipedia
 
     # Escuchar nuestro microfono y devolver el audio como texto.
     def transformar_audio_en_texto():
