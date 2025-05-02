@@ -1388,6 +1388,7 @@ def mi_restaurante():
 
 # Dia 13
 def asistente_personal():
+    import datetime
     import pyttsx3  # Texto a Voz
     import speech_recognition as sr  # Voz a Texto
     import pywhatkit  # Buscar en internet
