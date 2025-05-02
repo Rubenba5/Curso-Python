@@ -779,7 +779,7 @@ def web_scraping():
     for libro in titulos_rating_alto:
         print(libro)
 
-r
+
 # Dia 12
 def mi_restaurante():
     # Funciones de Calculadora
