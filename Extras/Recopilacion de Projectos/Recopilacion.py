@@ -1,3 +1,7 @@
+# Librerias
+from tkinter import *  # Importar TKINTER (interfaz grafica)
+
+
 # Dia 1
 def Nombre_Cerveza():
     print("\nEl nombre de tu cerveza\n"+ "es '"+ (input("¿Qué serie te gusta? ")+" "+input("Qué animal es tu favorito? "))+ "'\n"+"¡Felicitaciones!")
@@ -161,7 +165,7 @@ def elegir_palabra():
 
         if Vidas == 0:
             print(f"¡Has perdido! La palabra era: {palabra1}")
-            quit()
+            Vidas = 0
 
     if "-" not in lista_guiones:
         print("¡Felicidades! Has adivinado la palabra.")
@@ -346,7 +350,6 @@ def cuenta_banco():
 
             elif Accion == "3":
                 Bucle = 1
-                quit()
 
     # Ejecucion
     cliente_nuevo = crear_cliente()
@@ -444,6 +447,13 @@ def elegir_turno():
 
 # Dia 9
 def buscar_numeros():
+    from pathlib import Path
+    import time
+    import os
+    import re
+    import datetime
+    import math
+
     # Ruta del Directorio
     ruta_base = Path.home()
     ruta = Path(ruta_base,"Proyectos", "Recursos_9","Mi_Gran_Directorio")
@@ -771,10 +781,10 @@ def web_scraping():
 
 # Dia 12
 def mi_restaurante():
-    import tkinter as tk
-    from tkinter import filedialog, messagebox
-    import datetime
+    from platform import release
     import random
+    import datetime
+    from tkinter import filedialog, messagebox  # Guardar
 
     # Funciones de Calculadora
     operador = ""
