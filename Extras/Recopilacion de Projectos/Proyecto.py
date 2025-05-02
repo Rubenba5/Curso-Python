@@ -38,7 +38,7 @@ def Presentacion():
     print(f"Día 11: {Data_11.titulo}")
     print(f"Día 12: {Data_12.titulo}")
     print(f"Día 13: {Data_13.titulo}")
-    print(f"Día 14: ")
+    print(f"Día 14: {Data_14.titulo}")
     print(f"Día 15: ")
     print(f"Día 16: ")
     print("")
@@ -151,6 +151,8 @@ Data_12 = Proyectos("Gestor de Restaurantes", "Un sistema de facturación comple
 
 Data_13 = Proyectos("Asistente Personal", "Un asistente virtual controlado por voz desarrollado en Python.\nUtiliza `speech_recognition` para interpretar comandos hablados y `pyttsx3` para responder con voz.\nPuede decir la hora y el día, abrir sitios web como YouTube o Google, buscar en Wikipedia, contar chistes, reproducir videos de YouTube, buscar en internet y consultar precios de acciones usando `yfinance`.\nIncluye manejo de errores por voz no reconocida o sin conexión.\nEjemplo de integración de múltiples librerías para crear una experiencia de usuario interactiva por voz.", "#Python, #AsistenteVirtual, #ReconocimientoVoz, #pyttsx3, #speechrecognition", "02/05/2025", "Día 13", "13")
 
+Data_14 = Proyectos("Reconocimiento Facial", "Aplicación en Python que emplea `face_recognition` y `OpenCV` para capturar una imagen desde la cámara web, identificar rostros comparándolos con\nuna base de datos de empleados previamente codificada, y registrar automáticamente el nombre y la hora de ingreso en un archivo CSV\nsi se encuentra una coincidencia confiable, integrando visión por computadora y biometría facial para control de accesos.", "#Python, #ReconocimientoFacial, #OpenCV, #face_recognition, #VisiónComputacional", "02/05/2025", "Día 14", "14")
+
 
 # Variables / Listas
 Bucle = True
@@ -167,6 +169,7 @@ Lista_de_Verificacion = [Data_1.dia, Data_1.titulo, Data_1.numero,
                          Data_11.dia, Data_11.titulo, Data_11.numero,
                          Data_12.dia, Data_12.titulo, Data_12.numero,
                          Data_13.dia, Data_13.titulo, Data_13.numero,
+                         Data_14.dia, Data_14.titulo, Data_14.numero,
 
                          ]
 
@@ -317,6 +320,18 @@ while Bucle:
             Limpiar_pantalla()
             Descripcion(Data_13.dia, Data_13.fecha, Data_13.descripcion, Data_13.etiqueta)
             Recopilacion.asistente_personal()
+            Respuesta_Preguntar = Volver_preguntar()
+
+            if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
+                pass
+
+            elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
+                Bucle = False
+
+        elif Respuesta == Data_14.dia or Respuesta == Data_14.titulo or Respuesta == Data_14.numero:
+            Limpiar_pantalla()
+            Descripcion(Data_14.dia, Data_14.fecha, Data_14.descripcion, Data_14.etiqueta)
+            Recopilacion.reconocimiento_facial()
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
