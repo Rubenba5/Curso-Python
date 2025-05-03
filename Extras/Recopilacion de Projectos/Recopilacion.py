@@ -1729,3 +1729,7 @@ def reconocimiento_facial():
                 # Mantener ventana abierta
                 cv2.waitKey(0)
 
+# Dia 15
+def machine_learning():
+    pass
+

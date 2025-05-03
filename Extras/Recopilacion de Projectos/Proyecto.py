@@ -39,7 +39,7 @@ def Presentacion():
     print(f"Día 12: {Data_12.titulo}")
     print(f"Día 13: {Data_13.titulo}")
     print(f"Día 14: {Data_14.titulo}")
-    print(f"Día 15: ")
+    print(f"Día 15: {Data_15.titulo}")
     print(f"Día 16: ")
     print("")
     Pregunta = input(f"{negrita("¿Que projecto deseas ejecutar?")} ")
@@ -153,6 +153,8 @@ Data_13 = Proyectos("Asistente Personal", "Un asistente virtual controlado por v
 
 Data_14 = Proyectos("Reconocimiento Facial", "Aplicación en Python que emplea `face_recognition` y `OpenCV` para capturar una imagen desde la cámara web, identificar rostros comparándolos con\nuna base de datos de empleados previamente codificada, y registrar automáticamente el nombre y la hora de ingreso en un archivo CSV\nsi se encuentra una coincidencia confiable, integrando visión por computadora y biometría facial para control de accesos.", "#Python, #ReconocimientoFacial, #OpenCV, #face_recognition, #VisiónComputacional", "02/05/2025", "Día 14", "14")
 
+Data_15 = Proyectos("Árbol de Decisión - Titanic", "Este proyecto en Python que aplica técnicas de aprendizaje automático para analizar el famoso dataset del Titanic, utilizando un modelo de `DecisionTreeClassifier` de `Scikit-Learn`.\nA partir de características como sexo, edad y clase del pasajero, el modelo es entrenado para predecir la probabilidad de supervivencia de cada individuo.\nSe realiza una limpieza y preparación de datos, separación entre atributos predictivos `X` y la variable objetivo `y`, entrenamiento del modelo, y evaluación con métricas como precisión\ny matriz de confusión.\nAdemás, se visualiza el árbol de decisión generado para interpretar las reglas aprendidas y se analiza la importancia de cada atributo en la predicción,\noferciendo una visión clara de cómo factores socioeconómicos y demográficos influyeron en las chances de supervivencia durante el hundimiento del Titanic.", "#Python, #MachineLearning, #ÁrbolDeDecisión, #Titanic, #ScikitLearn, #Visualización", "03/05/2025", "Día 15", "15")
+
 
 # Variables / Listas
 Bucle = True
@@ -170,6 +172,7 @@ Lista_de_Verificacion = [Data_1.dia, Data_1.titulo, Data_1.numero,
                          Data_12.dia, Data_12.titulo, Data_12.numero,
                          Data_13.dia, Data_13.titulo, Data_13.numero,
                          Data_14.dia, Data_14.titulo, Data_14.numero,
+                         Data_15.dia, Data_15.titulo, Data_15.numero,
 
                          ]
 
@@ -332,6 +335,22 @@ while Bucle:
             Limpiar_pantalla()
             Descripcion(Data_14.dia, Data_14.fecha, Data_14.descripcion, Data_14.etiqueta)
             Recopilacion.reconocimiento_facial()
+            Respuesta_Preguntar = Volver_preguntar()
+
+            if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
+                pass
+
+            elif Respuesta_Preguntar in Lista_de_Verificacion_Salir:
+                Bucle = False
+
+        elif Respuesta == Data_15.dia or Respuesta == Data_15.titulo or Respuesta == Data_15.numero:
+            Limpiar_pantalla()
+            Descripcion(Data_15.dia, Data_15.fecha, Data_15.descripcion, Data_15.etiqueta)
+            print(f"Este proyecto fue desarrollado en {negrita_y_subrayado("Google Colab")}. Por esta razón, no puedes contemplarlo en esta terminal.")
+            print("")
+            print(f"Puede visualizarlo a traves de {negrita("este enlace")}: {negrita_y_subrayado("https://github.com/Rubenba5/Curso-Python/blob/main/Dia%2015/Machine%20Learning/Python%20TOTAL%20-%20Machine%20Learning.ipynb")}")
+
+            Recopilacion.machine_learning()
             Respuesta_Preguntar = Volver_preguntar()
 
             if Respuesta_Preguntar in Lista_de_Verificacion_Volver:
