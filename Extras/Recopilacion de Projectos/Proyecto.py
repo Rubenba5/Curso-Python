@@ -348,7 +348,7 @@ while Bucle:
             Descripcion(Data_15.dia, Data_15.fecha, Data_15.descripcion, Data_15.etiqueta)
             print(f"Este proyecto fue desarrollado en {negrita_y_subrayado("Google Colab")}. Por esta razón, no puedes contemplarlo en esta terminal.")
             print("")
-            print(f"Puede visualizarlo a traves de {negrita("este enlace")}: {negrita_y_subrayado("https://github.com/Rubenba5/Curso-Python/blob/main/Dia%2015/Machine%20Learning/Python%20TOTAL%20-%20Machine%20Learning.ipynb")}")
+            print(f"Podrás visualizarlo a traves de {negrita("este enlace")}: {negrita_y_subrayado("https://github.com/Rubenba5/Curso-Python/blob/main/Dia%2015/Machine%20Learning/Python%20TOTAL%20-%20Machine%20Learning.ipynb")}")
 
             Recopilacion.machine_learning()
             Respuesta_Preguntar = Volver_preguntar()
