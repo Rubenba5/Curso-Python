@@ -11,8 +11,6 @@ import Recopilacion
 # Librerias
 import datetime
 from os import system
-from tkinter import * # Importar TKINTER (interfaz grafica)
-
 
 # Dia de hoy
 Fecha = datetime.datetime.now()
