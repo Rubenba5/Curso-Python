@@ -222,7 +222,7 @@ aplicacion.title("Mi Restaurante - Sitema de Factruración")
 
 # Color de fondo de la Ventana
 # Lista de nombres: https://es.wikibooks.org/wiki/Python/Interfaz_gr%C3%A1fica_con_Tkinter/Los_nombres_de_los_colores
-aplicacion.config(bg="burlywood") # bg = Background / Se puede usar rgb o lista de nombres.
+aplicacion.config(bg="41, 128, 185") # bg = Background / Se puede usar rgb o lista de nombres.
 
 
 # Panel Superior
