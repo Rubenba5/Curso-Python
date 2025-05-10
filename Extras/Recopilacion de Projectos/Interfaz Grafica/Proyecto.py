@@ -600,6 +600,9 @@ def boton():
                                        width=60)
             proyecto_etiquetas.grid(row=3, column=0, padx=10)
 
+        elif "Información sobre el curso" in nombre:
+            borrar_panel_derecho()
+
 
 # Boton de Ejecutar
 boton_ejecutar = Button(panel_boton,
