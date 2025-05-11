@@ -108,67 +108,105 @@ Data_16 = Proyectos("Aplicación Web de Tareas",
 
 # Importar Interfaz Gráfica
 from tkinter import *
+from tkinter import ttk
+
+# Colores Modernos
+COLOR_FONDO = "#F8F9FA"
+COLOR_PANEL = "#FFFFFF"
+COLOR_TITULO = "#343A40"
+COLOR_BOTON = "#168ae2"
+COLOR_BOTON_PULSADO = "#0f6db5"
+COLOR_SELECCION = "#E9ECEF"
+COLOR_TEXTO = "#343A40"
+
 
 # Iniciar tkinter
 aplicacion = Tk()
 
+
 # Dimensiones de la aplicación
-aplicacion.geometry("1025x700+0+0")
+aplicacion.geometry("1000x600+0+0")
+
 
 # No Maximizar
 aplicacion.resizable(False, False)
 
-# Título / Fondo
+
+# Título / Fondo / Icono
 aplicacion.title("Recopilación de Proyectos - Rubén Blasco Armengod")
+aplicacion.config(bg=COLOR_FONDO)
+aplicacion.iconbitmap("icono.ico")
 
-# Panel Arriba
-panel_arriba = Frame(aplicacion, bd= 0, relief= "raised")
 
-# Frame Izquierdo
-panel_izquierdo = Frame(aplicacion, bd=0, relief="raised")
-panel_izquierdo.pack(side="left", fill= "x")
+# Paneles
+panel_arriba = Frame(aplicacion, bd=1, relief="raised", bg=COLOR_PANEL)
+panel_arriba.pack(side="top")
 
-# Frame Derecho
-panel_derecho = Frame(aplicacion, bd= 1, relief="raised")
+panel_abajo = Frame(aplicacion, bd=1, relief="raised", bg=COLOR_PANEL)
+panel_abajo.pack(side="bottom")
+
+panel_abajo_derecha = Frame(panel_abajo, bd=0, relief="raised", bg=COLOR_PANEL)
+panel_abajo_derecha.pack(side="right")
+
+panel_izquierdo = Frame(aplicacion, bd=0, relief="raised", bg=COLOR_FONDO)
+panel_izquierdo.pack(side="left", fill="x")
+
+panel_derecho = Frame(aplicacion, bd=1, relief="raised", bg=COLOR_PANEL)
 panel_derecho.pack(side="right", padx=48)
 
-# Panel Texto
-panel_texto = Frame(panel_izquierdo, bd= 0, relief="raised")
-panel_texto.pack(side= "top")
+panel_texto = Frame(panel_izquierdo, bd=0, relief="raised", bg=COLOR_FONDO)
+panel_texto.pack(side="top")
 
-# Panel Scrollbar
-panel_scrollbar = Frame(panel_izquierdo, bd= 0, relief= "raised")
-panel_scrollbar.pack(fill= "both")
+panel_scrollbar = Frame(panel_izquierdo, bd=0, relief="raised", bg=COLOR_FONDO)
+panel_scrollbar.pack(fill="both")
 
-# Panel Boton
-panel_boton = Frame(panel_izquierdo, bd= 0, relief= "raised")
-panel_boton.pack(side= "bottom")
+panel_boton = Frame(panel_izquierdo, bd=0, relief="raised", bg=COLOR_FONDO)
+panel_boton.pack(side="bottom")
 
-# Título
+
+# Etiquetas
+etiqueta_titulo_principal = Label(panel_arriba,
+                                  text="Recopilación de Proyectos - Python Total",
+                                  fg=COLOR_TITULO,
+                                  font=("NotoSansCJKTC", 15),
+                                  width=100, bg=COLOR_PANEL)
+
+etiqueta_titulo_principal.pack(side="top")
+
+etiqueta_titulo_principal2 = Label(panel_abajo_derecha,
+                                   text="",
+                                   fg=COLOR_TITULO,
+                                   font=("NotoSansCJKTC", 15),
+                                   width=130,
+                                   bg=COLOR_PANEL)
+
+etiqueta_titulo_principal2.pack(side="right")
+
 etiqueta_titulo = Label(panel_texto,
                         text="¡Bienvenido de Nuevo!",
-                        fg="black",
+                        fg=COLOR_TEXTO,
                         font=("NotoSansCJKTC", 20),
-                        width=20)
+                        width=20,
+                        bg=COLOR_FONDO)
 
 etiqueta_titulo.grid(row=3, column=0)
 
-# Descripción
 etiqueta_descripcion = Label(panel_texto,
                              text='Elige un proyecto para ejecutar',
-                             fg="black",
+                             fg=COLOR_TEXTO,
                              font=("NotoSansCJKTC", 13),
-                             width=30)
+                             width=30,
+                             bg=COLOR_FONDO)
 
 etiqueta_descripcion.grid(row=6, column=0)
 
 # Listbox
-listbox = Listbox(panel_izquierdo,
-                  width=20,
-                  selectbackground= "GhostWhite",
-                  selectforeground= "black",
+listbox = Listbox(panel_izquierdo, width=20,
+                  selectbackground=COLOR_SELECCION,
+                  selectforeground=COLOR_TITULO,
                   font=("NotoSansCJKTC", 10),
-                  height= 17)
+                  height=17,
+                  bg=COLOR_PANEL)
 
 
 # Agregar elementos al Listbox
@@ -190,9 +228,7 @@ listbox.insert(END, f"{Data_15.dia}: {Data_15.titulo}")
 listbox.insert(END, f"{Data_16.dia}: {Data_16.titulo}")
 listbox.insert(END, f"⮞ Información sobre el curso")
 
-
 listbox.pack(fill= "both", pady= 20, padx= 48)
-
 
 
 # Selelecion
@@ -201,10 +237,52 @@ selecciones = listbox.curselection()
 for selecion in selecciones:
     nombre = listbox.get(selecion)
 
+
+# Borrar Panel
 def borrar_panel_derecho():
     if panel_derecho.winfo_children():
         for label in panel_derecho.winfo_children():
             label.destroy()
+
+
+# Descipciones
+def descripciones(dia, fecha, titulo, descripcion, etiqueta):
+    proyecto_titulo = Label(panel_derecho,
+                            text= f"{dia}: {titulo}",
+                            fg="black",
+                            font=("NotoSansCJKTC", 13),
+                            width=30,
+                            bg= COLOR_PANEL)
+
+    proyecto_titulo.grid(row=0, column=0)
+
+    proyecto_fecha = Label(panel_derecho,
+                            text= f"Fecha: {fecha}",
+                            fg="black",
+                            font=("NotoSansCJKTC", 11),
+                            width=30,
+                            bg= COLOR_PANEL)
+
+    proyecto_fecha.grid(row=1, column=0, padx=5, pady=5)
+
+    proyecto_descripcion = Label(panel_derecho,
+                                 text= f"{descripcion}",
+                                 fg="black",
+                                 font=("NotoSansCJKTC", 11),
+                                 width=60,
+                                 bg = COLOR_PANEL)
+
+    proyecto_descripcion.grid(row=2, column=0, padx=5, pady=5)
+
+    proyecto_etiquetas = Label(panel_derecho,
+                               text= f"{etiqueta}",
+                               fg="black",
+                               font=("NotoSansCJKTC", 11),
+                               width=60,
+                               bg=COLOR_PANEL)
+
+    proyecto_etiquetas.grid(row=3, column=0)
+
 
 # Funcion Boton
 def boton():
@@ -218,407 +296,86 @@ def boton():
 
         if Data_1.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_1.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=60)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_1.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0)
+            descripciones(Data_1.dia, Data_1.fecha ,Data_1.titulo, Data_1.descripcion, Data_1.etiqueta)
 
         elif Data_2.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_2.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_2.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0)
+            descripciones(Data_2.dia, Data_2.fecha, Data_2.titulo, Data_2.descripcion, Data_2.etiqueta)
 
         elif Data_3.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_3.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_3.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_3.dia,  Data_3.fecha, Data_3.titulo, Data_3.descripcion, Data_3.etiqueta)
 
         elif Data_4.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_4.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_4.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_4.dia, Data_4.fecha, Data_4.titulo, Data_4.descripcion, Data_4.etiqueta)
 
         elif Data_5.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_5.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_5.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_5.dia, Data_5.fecha, Data_5.titulo, Data_5.descripcion, Data_5.etiqueta)
 
         elif Data_6.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_6.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_6.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_6.dia, Data_6.fecha, Data_6.titulo, Data_6.descripcion, Data_6.etiqueta)
 
         elif Data_7.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_7.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_7.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_7.dia, Data_7.fecha, Data_7.titulo, Data_7.descripcion, Data_7.etiqueta)
 
         elif Data_8.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_8.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_8.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_8.dia, Data_8.fecha, Data_8.titulo, Data_8.descripcion, Data_8.etiqueta)
 
         elif Data_9.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=32)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_9.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_9.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_9.dia, Data_9.fecha, Data_9.titulo, Data_9.descripcion, Data_9.etiqueta)
 
         elif Data_10.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_10.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_10.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_10.dia, Data_10.fecha, Data_10.titulo, Data_10.descripcion, Data_10.etiqueta)
 
         elif Data_11.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_11.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_11.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_11.dia, Data_11.fecha, Data_11.titulo, Data_11.descripcion, Data_11.etiqueta)
 
         elif Data_12.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_12.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_12.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_12.dia, Data_12.fecha, Data_12.titulo, Data_12.descripcion, Data_12.etiqueta)
 
         elif Data_13.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_13.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_13.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_13.dia, Data_13.fecha, Data_13.titulo, Data_13.descripcion, Data_13.etiqueta)
 
         elif Data_14.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_14.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_14.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_14.dia, Data_14.fecha, Data_14.titulo, Data_14.descripcion, Data_14.etiqueta)
 
         elif Data_15.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_15.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_15.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_15.dia, Data_15.fecha, Data_15.titulo, Data_15.descripcion, Data_15.etiqueta)
 
         elif Data_16.titulo in nombre:
             borrar_panel_derecho()
-
-            proyecto_titulo = Label(panel_derecho,
-                                    text=nombre,
-                                    fg="black",
-                                    font=("NotoSansCJKTC", 13),
-                                    width=30)
-            proyecto_titulo.grid(row=0, column=0)
-
-            proyecto_descripcion = Label(panel_derecho,
-                                         text=Data_16.descripcion,
-                                         fg="black",
-                                         font=("NotoSansCJKTC", 11),
-                                         width=0)
-            proyecto_descripcion.grid(row=1, column=0, padx=10, pady=20)
-
-            proyecto_etiquetas = Label(panel_derecho,
-                                       text=Data_16.etiqueta,
-                                       fg="black",
-                                       font=("NotoSansCJKTC", 11),
-                                       width=60)
-            proyecto_etiquetas.grid(row=3, column=0, padx=10)
+            descripciones(Data_16.dia, Data_16.fecha, Data_16.titulo, Data_16.descripcion, Data_16.etiqueta)
 
         elif "Información sobre el curso" in nombre:
             borrar_panel_derecho()
 
 
-# Boton de Ejecutar
+# Botón de Ejecutar
 boton_ejecutar = Button(panel_boton,
                         text="Ejecutar",
-                        fg="white",
-                        bg="azure4",
-                        bd= 3,
+                        fg="#FFFFFF",
+                        bg=COLOR_BOTON,
+                        bd=3,
                         font=("NotoSansCJKTC", 10),
-                        width= 10)
+                        width=10,
+                        activebackground=COLOR_BOTON_PULSADO)
 
-boton_ejecutar.grid(row= 9, column= 0)
+boton_ejecutar.grid(row=9, column=0)
 boton_ejecutar.config(command= boton)
 
 
 # Iniciar la aplicación
 aplicacion.mainloop()
-
-
 
