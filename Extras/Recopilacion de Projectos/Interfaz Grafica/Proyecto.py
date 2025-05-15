@@ -49,7 +49,7 @@ try:
 
     Data_4 = Proyectos("Adivina el Número",
                        "El jugador debe adivinar un número entre 1 y 100\n"
-                       "en un máximo de ocho intentos. El programa da pistas\n"
+                       "en un máximo de cinco intentos. El programa da pistas\n"
                        "según el número ingresado en cada intento para ayudarlo.",
                        "#Python, #Random, #While, #Game", "27/03/2025", "Día 4", "4")
 
@@ -131,6 +131,7 @@ try:
     # Importar Interfaz Gráfica
     from tkinter import *
     from pathlib import Path
+    import Recopilacion
 
     # Colores Modernos
     COLOR_FONDO = "#F8F9FA"
@@ -277,7 +278,8 @@ try:
 
 
     # Descipciones
-    def descripciones(dia, fecha, titulo, descripcion, etiqueta):
+    def descripciones(dia, fecha, titulo, descripcion, etiqueta, informacion):
+
         proyecto_titulo = Label(panel_derecho,
                                 text= f"{dia}: {titulo}",
                                 fg="black",
@@ -285,7 +287,7 @@ try:
                                 width=30,
                                 bg= COLOR_PANEL)
 
-        proyecto_titulo.grid(row=0, column=0, padx=5, pady=5)
+        proyecto_titulo.grid(row=0, column=0, padx=5, pady=10)
 
         proyecto_fecha = Label(panel_derecho,
                                 text= f"Fecha: {fecha}",
@@ -314,6 +316,31 @@ try:
 
         proyecto_etiquetas.grid(row=3, column=0, padx=5, pady=5)
 
+        texto_demonstracion = Text(panel_derecho,
+                                   fg= "white",
+                                   font=("NotoSansCJKTC", 10, "bold"),
+                                   bd=2,
+                                   width=65,
+                                   height=10,
+                                   bg="#181c18")
+
+        texto_demonstracion.grid(row=4, column=0, padx=5, pady=10)
+        texto_demonstracion.delete(0.1, END)
+        texto_demonstracion.insert(END, f"{informacion}")
+        texto_demonstracion.config(state= "disabled")
+
+    """ boton_demonstracion = Button(panel_boton_derecha,
+                                text="Demostración",
+                                fg="#FFFFFF",
+                                bg=COLOR_BOTON,
+                                bd=3,
+                                font=("NotoSansCJKTC", 10),
+                                width=10,
+                                activebackground=COLOR_BOTON_PULSADO)
+
+        boton_demonstracion.grid(row=5, column=0)"""
+
+
 
     # Funcion Boton
     def boton():
@@ -327,51 +354,51 @@ try:
 
             if Data_1.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_1.dia, Data_1.fecha ,Data_1.titulo, Data_1.descripcion, Data_1.etiqueta)
+                descripciones(Data_1.dia, Data_1.fecha ,Data_1.titulo, Data_1.descripcion, Data_1.etiqueta, Recopilacion.Nombre_Cerveza())
 
             elif Data_2.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_2.dia, Data_2.fecha, Data_2.titulo, Data_2.descripcion, Data_2.etiqueta)
+                descripciones(Data_2.dia, Data_2.fecha, Data_2.titulo, Data_2.descripcion, Data_2.etiqueta, Recopilacion.Calculador_impuestos())
 
             elif Data_3.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_3.dia,  Data_3.fecha, Data_3.titulo, Data_3.descripcion, Data_3.etiqueta)
+                descripciones(Data_3.dia,  Data_3.fecha, Data_3.titulo, Data_3.descripcion, Data_3.etiqueta, Recopilacion.analizador_textos())
 
             elif Data_4.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_4.dia, Data_4.fecha, Data_4.titulo, Data_4.descripcion, Data_4.etiqueta)
+                descripciones(Data_4.dia, Data_4.fecha, Data_4.titulo, Data_4.descripcion, Data_4.etiqueta, Recopilacion.numero_aleatorio())
 
             elif Data_5.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_5.dia, Data_5.fecha, Data_5.titulo, Data_5.descripcion, Data_5.etiqueta)
+                descripciones(Data_5.dia, Data_5.fecha, Data_5.titulo, Data_5.descripcion, Data_5.etiqueta, Recopilacion.elegir_palabra())
 
             elif Data_6.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_6.dia, Data_6.fecha, Data_6.titulo, Data_6.descripcion, Data_6.etiqueta)
+                descripciones(Data_6.dia, Data_6.fecha, Data_6.titulo, Data_6.descripcion, Data_6.etiqueta, Recopilacion.recetario())
 
             elif Data_7.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_7.dia, Data_7.fecha, Data_7.titulo, Data_7.descripcion, Data_7.etiqueta)
+                descripciones(Data_7.dia, Data_7.fecha, Data_7.titulo, Data_7.descripcion, Data_7.etiqueta, Recopilacion.cuenta_banco())
 
             elif Data_8.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_8.dia, Data_8.fecha, Data_8.titulo, Data_8.descripcion, Data_8.etiqueta)
+                descripciones(Data_8.dia, Data_8.fecha, Data_8.titulo, Data_8.descripcion, Data_8.etiqueta, Recopilacion.elegir_turno())
 
             elif Data_9.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_9.dia, Data_9.fecha, Data_9.titulo, Data_9.descripcion, Data_9.etiqueta)
+                descripciones(Data_9.dia, Data_9.fecha, Data_9.titulo, Data_9.descripcion, Data_9.etiqueta, Recopilacion.buscar_numeros())
 
             elif Data_10.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_10.dia, Data_10.fecha, Data_10.titulo, Data_10.descripcion, Data_10.etiqueta)
+                descripciones(Data_10.dia, Data_10.fecha, Data_10.titulo, Data_10.descripcion, Data_10.etiqueta, Recopilacion.juego())
 
             elif Data_11.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_11.dia, Data_11.fecha, Data_11.titulo, Data_11.descripcion, Data_11.etiqueta)
+                descripciones(Data_11.dia, Data_11.fecha, Data_11.titulo, Data_11.descripcion, Data_11.etiqueta, Recopilacion.web_scraping())
 
             elif Data_12.titulo in nombre:
                 borrar_panel_derecho()
-                descripciones(Data_12.dia, Data_12.fecha, Data_12.titulo, Data_12.descripcion, Data_12.etiqueta)
+                descripciones(Data_12.dia, Data_12.fecha, Data_12.titulo, Data_12.descripcion, Data_12.etiqueta, Recopilacion.mi_restaurante())
 
             elif Data_13.titulo in nombre:
                 borrar_panel_derecho()
@@ -406,7 +433,7 @@ try:
 
 
         proyecto_descripcion = Label(panel_derecho,
-                                     text= f'Esta interfaz grafica es una recopilación de los proyectos de\nRubén Blasco Armengod durante su formación en "Python Total",\nimpartido por Federico Garay.\n\nEn esta formación realizo 16 proyectos que son mencionados\nen la parte izquierda de su pantalla.\n\n Enlace del Repositorio: https://github.com/Rubenba5/Curso-Python',
+                                     text= f'Esta interfaz grafica es una recopilación de los proyectos de\nRubén Blasco Armengod durante su formación en "Python Total",\nimpartido por Federico Garay.\n\nEn esta formación realizo 16 proyectos que son mencionados\nen la parte izquierda de su pantalla incluyendo una demostración.\n\n Enlace del Repositorio: https://github.com/Rubenba5/Curso-Python',
                                      fg="black",
                                      font=("NotoSansCJKTC", 11),
                                      width=60,
@@ -430,15 +457,14 @@ try:
     boton_informacion = Button(panel_boton,
                             text="Información",
                             fg="#FFFFFF",
-                            bg= "#32ef3e",
+                            bg= "#c2c3c2",
                             bd=3,
                             font=("NotoSansCJKTC", 10),
                             width=10,
-                            activebackground= "#0ec41a")
+                            activebackground= "#969996")
 
     boton_informacion.grid(row=9, column=0)
     boton_informacion.config(command= informacion)
-
 
     # Iniciar la aplicación
     aplicacion.mainloop()
