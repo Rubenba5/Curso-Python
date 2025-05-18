@@ -57,8 +57,7 @@ def boton(listbox, panel_derecho, COLOR_PANEL):
 
             elif models.Data_11.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
-                descripciones(panel_derecho, COLOR_PANEL, models.Data_11.dia, models.Data_11.fecha, models.Data_11.titulo, models.Data_11.descripcion, models.Data_11.etiqueta, "Este proyecto fue desarrollado junto a una pagina web externa.\n\nPor esta razón, puede llegar a tardar hasta un minuto en responder.\n\n")
-                boton_pagina_web(panel_derecho, "Ejecutar Web Scraping", 20, web_scraping)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_11.dia, models.Data_11.fecha, models.Data_11.titulo, models.Data_11.descripcion, models.Data_11.etiqueta, web_scraping())
 
             elif models.Data_12.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
@@ -1178,10 +1177,11 @@ def web_scraping():
                     titulos_rating_alto.append(titulo_libro)
 
         # Ver libros de 4 y 5 estrellas en consola
+        lista_imprimir.append("Este proyecto fue desarrollado junto a una pagina web externa.\n\nPor esta razón, ha podido llegar a tardar hasta un minuto en\nresponder.\n\n→ Listado de Libros:")
         for libro in titulos_rating_alto:
             lista_imprimir.append(libro)
 
-        return "\n".join(lista_imprimir)
+        return "\n◦ ".join(lista_imprimir)
 
     # Detección de Errores
     except SyntaxError:
@@ -2258,6 +2258,7 @@ def borrar_panel_derecho(panel_derecho):
         except TclError:
             pass
 
+
 # Descipciones
 def descripciones(panel_derecho, COLOR_PANEL, dia, fecha, titulo, descripcion, etiqueta, informacion):
 
@@ -2305,7 +2306,7 @@ def descripciones(panel_derecho, COLOR_PANEL, dia, fecha, titulo, descripcion, e
                                    height=10,
                                    bg="#181c18")
 
-        texto_demonstracion.grid(row=4, column=0, padx=5, pady=5)
+        texto_demonstracion.grid(row=4, column=0, padx=5, pady=10)
         texto_demonstracion.delete(0.1, END)
         texto_demonstracion.insert(END, f"{informacion}")
         texto_demonstracion.config(state= "disabled")
@@ -2323,17 +2324,36 @@ def informacion(panel_derecho, COLOR_PANEL):
                                 width=50,
                                 bg= COLOR_PANEL)
 
-        proyecto_titulo.grid(row=0, column=0, padx=5, pady=5)
+        proyecto_titulo.grid(row=0, column=0, padx=5, pady=10)
 
 
 
         proyecto_descripcion = Label(panel_derecho,
-                                     text= f'Esta interfaz gráfica es una recopilación de los proyectos de\nRubén Blasco Armengod durante su formación en "Python Total",\nimpartido por Federico Garay.\n\nEn esta formación realizo 16 proyectos que son mencionados\nen la parte izquierda de su pantalla incluyendo una demostración.\n\n Enlace del Repositorio: https://github.com/Rubenba5/Curso-Python',
+                                     text= f'Esta interfaz gráfica es una recopilación de los proyectos de\nRubén Blasco Armengod durante su formación en "Python Total",\nimpartido por Federico Garay.\n\nPara el correcto funcionamiento de esta recopilación,\nes necesario descomprimir la carpeta de recursos en\nsu directorio general de su usuario de Windows.\n\nEn esta formación realizo 16 proyectos que son mencionados\nen la parte izquierda de su pantalla incluyendo una demostración.\n\nLos proyectos mencionados en esta recopilación se encuentran\ndisponibles en un repositorio de GitHub para su consulta.',
                                      fg="black",
                                      font=("NotoSansCJKTC", 11),
                                      width=60,
                                      bg = COLOR_PANEL)
-        proyecto_descripcion.grid(row=1, column=0, padx=5, pady=5)
+        proyecto_descripcion.grid(row=1, column=0, padx=5, pady=10)
+
+        boton_demostracion = Button(panel_derecho,
+                                    text="Abrir Repositorio",
+                                    fg="#FFFFFF",
+                                    bg="#8a8a8c",
+                                    bd=2,
+                                    font=("NotoSansCJKTC", 10),
+                                    width=15,
+                                    activebackground="#787878")
+
+        boton_demostracion.grid(row=10, column=0, padx=5, pady=10)
+        boton_demostracion.config(command= abrir_repositorio)
+
+
+# Funcion Abrir Repositorio
+def abrir_repositorio():
+    import webbrowser
+
+    webbrowser.open("https://github.com/Rubenba5/Curso-Python")
 
 
 # Boton Pagina Web
@@ -2366,3 +2386,4 @@ def errores(error, panel_abajo_derecha):
                                        bg="#FFFFFF")
 
     etiqueta_titulo_principal.pack(side="bottom")
+

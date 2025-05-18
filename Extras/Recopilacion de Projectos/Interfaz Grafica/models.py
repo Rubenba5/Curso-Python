@@ -107,3 +107,4 @@ Data_16 = Proyectos("Aplicación Web de Tareas",
                         "Django. Incluye login, CRUD, filtro de tareas y contador. El\n"
                         "diseño usa HTML y CSS, asegurando que cada usuario solo vea sus tareas.",
                         "#Python, #Django, #ToDoApp, #CRUD, #Login, #HTML, #CSS", "04/05/2025", "Día 16", "16")
+
