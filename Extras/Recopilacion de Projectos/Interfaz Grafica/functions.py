@@ -1,9 +1,10 @@
 # Importar
 import models
+from tkinter import *
+
 
 # Funcion Principal
-def boton(listbox):
-
+def boton(listbox, panel_derecho, COLOR_PANEL):
         import time
 
         # Capturar la selección actual del Listbox
@@ -14,76 +15,76 @@ def boton(listbox):
             nombre = listbox.get(selecciones[0])  # Solo tomamos el primer seleccionado
 
             if models.Data_1.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_1.dia, Data_1.fecha ,Data_1.titulo, Data_1.descripcion, Data_1.etiqueta, Nombre_Cerveza())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_1.dia, models.Data_1.fecha ,models.Data_1.titulo, models.Data_1.descripcion, models.Data_1.etiqueta, Nombre_Cerveza())
 
             elif models.Data_2.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_2.dia, Data_2.fecha, Data_2.titulo, Data_2.descripcion, Data_2.etiqueta, Calculador_impuestos())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_2.dia, models.Data_2.fecha, models.Data_2.titulo, models.Data_2.descripcion, models.Data_2.etiqueta, Calculador_impuestos())
 
             elif models.Data_3.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_3.dia,  Data_3.fecha, Data_3.titulo, Data_3.descripcion, Data_3.etiqueta, analizador_textos())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_3.dia,  models.Data_3.fecha, models.Data_3.titulo, models.Data_3.descripcion, models.Data_3.etiqueta, analizador_textos())
 
             elif models.Data_4.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_4.dia, Data_4.fecha, Data_4.titulo, Data_4.descripcion, Data_4.etiqueta, numero_aleatorio())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_4.dia, models.Data_4.fecha, models.Data_4.titulo, models.Data_4.descripcion, models.Data_4.etiqueta, numero_aleatorio())
 
             elif models.Data_5.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_5.dia, Data_5.fecha, Data_5.titulo, Data_5.descripcion, Data_5.etiqueta, elegir_palabra())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_5.dia, models.Data_5.fecha, models.Data_5.titulo, models.Data_5.descripcion, models.Data_5.etiqueta, elegir_palabra())
 
             elif models.Data_6.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_6.dia, Data_6.fecha, Data_6.titulo, Data_6.descripcion, Data_6.etiqueta, recetario())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_6.dia, models.Data_6.fecha, models.Data_6.titulo, models.Data_6.descripcion, models.Data_6.etiqueta, recetario())
 
             elif models.Data_7.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_7.dia, Data_7.fecha, Data_7.titulo, Data_7.descripcion, Data_7.etiqueta, cuenta_banco())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_7.dia, models.Data_7.fecha, models.Data_7.titulo, models.Data_7.descripcion, models.Data_7.etiqueta, cuenta_banco())
 
             elif models.Data_8.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_8.dia, Data_8.fecha, Data_8.titulo, Data_8.descripcion, Data_8.etiqueta, elegir_turno())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_8.dia, models.Data_8.fecha, models.Data_8.titulo, models.Data_8.descripcion, models.Data_8.etiqueta, elegir_turno())
 
             elif models.Data_9.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(Data_9.dia, Data_9.fecha, Data_9.titulo, Data_9.descripcion, Data_9.etiqueta, buscar_numeros())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_9.dia, models.Data_9.fecha, models.Data_9.titulo, models.Data_9.descripcion, models.Data_9.etiqueta, buscar_numeros())
 
             elif models.Data_10.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(models.Data_10.dia, models.Data_10.fecha, models.Data_10.titulo, models.Data_10.descripcion, models.Dmodels.ata_10.etiqueta, 'Este proyecto fue desarrollado junto a "Pygame". Por esta razón, no\npuedes contemplarlo en esta interfaz gráfica.\n\nPodrás visualizar este proyecto pulsando el boton inferior.')
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_10.dia, models.Data_10.fecha, models.Data_10.titulo, models.Data_10.descripcion, models.Data_10.etiqueta, 'Este proyecto fue desarrollado junto a "Pygame". Por esta razón, no\npuedes contemplarlo en esta interfaz gráfica.\n\nPodrás visualizar este proyecto pulsando el boton inferior.')
                 boton_pagina_web(panel_derecho, "Ejecutar Invasión Espacial", 20, juego)
 
             elif models.Data_11.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(models.Data_11.dia, models.Data_11.fecha, models.Data_11.titulo, models.Data_11.descripcion, models.Data_11.etiqueta, web_scraping())
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_11.dia, models.Data_11.fecha, models.Data_11.titulo, models.Data_11.descripcion, models.Data_11.etiqueta, "Este proyecto fue desarrollado junto a una pagina web externa.\n\nPor esta razón, puede llegar a tardar hasta un minuto en responder.\n\n")
+                boton_pagina_web(panel_derecho, "Ejecutar Web Scraping", 20, web_scraping)
 
             elif models.Data_12.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(models.Data_12.dia, models.Data_12.fecha, models.Data_12.titulo, models.Data_12.descripcion, models.Data_12.etiqueta, 'Este proyecto fue desarrollado junto a "Tkinter". Por esta razón, no\npuedes contemplarlo en esta interfaz gráfica.\n\nPodrás visualizar este proyecto pulsando el boton inferior.')
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_12.dia, models.Data_12.fecha, models.Data_12.titulo, models.Data_12.descripcion, models.Data_12.etiqueta, 'Este proyecto fue desarrollado junto a "Tkinter". Por esta razón, no\npuedes contemplarlo en esta interfaz gráfica.\n\nPodrás visualizar este proyecto pulsando el boton inferior.')
                 boton_pagina_web(panel_derecho, "Ejecutar Gestor de Restaurante", 25, mi_restaurante)
 
-
             elif models.Data_13.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(models.Data_13.dia, models.Data_13.fecha, models.Data_13.titulo, models.Data_13.descripcion, models.Data_13.etiqueta, "Este proyecto se ejecuta usando su microfono obligatoriamente.\n\nPara el correcto funcionamiento de este proyecto, tiene que hablar\nrapidamente cuando el asistenete este callado para que pueda\nreconocer la acción deseada.")
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_13.dia, models.Data_13.fecha, models.Data_13.titulo, models.Data_13.descripcion, models.Data_13.etiqueta, "Este proyecto se ejecuta usando su microfono obligatoriamente.\n\nPara el correcto funcionamiento de este proyecto, tiene que hablar\nrapidamente cuando el asistenete este callado para que pueda\nreconocer la acción deseada.")
                 time.sleep(10)
                 asistente_personal()
 
             elif models.Data_14.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(models.Data_14.dia, models.Data_14.fecha, models.Data_14.titulo, models.Data_14.descripcion, models.Data_14.etiqueta, "Este proyecto se ejecuta usando una webcam obligatoriamente.\n\nPor este motivo, si no consigue ver nada en esta terminal después de\nun tiempo. La razón es que no el programa ha conseguido detectar\ncorrectamente su webcam.")
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_14.dia, models.Data_14.fecha, models.Data_14.titulo, models.Data_14.descripcion, models.Data_14.etiqueta, "Este proyecto se ejecuta usando una webcam obligatoriamente.\n\nPor este motivo, si no consigue ver nada en esta terminal después de\nun tiempo. La razón es que no el programa ha conseguido detectar\ncorrectamente su webcam.")
                 time.sleep(3)
                 reconocimiento_facial()
 
             elif models.Data_15.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(models.Data_15.dia, models.Data_15.fecha, models.Data_15.titulo, models.Data_15.descripcion, models.Data_15.etiqueta, 'Este proyecto fue desarrollado junto a "Google Colab". Por esta razón, no puedes contemplarlo en esta interfaz gráfica.\n\nPodrás visualizar este proyecto pulsando el boton inferior.')
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_15.dia, models.Data_15.fecha, models.Data_15.titulo, models.Data_15.descripcion, models.Data_15.etiqueta, 'Este proyecto fue desarrollado junto a "Google Colab". Por esta razón, no puedes contemplarlo en esta interfaz gráfica.\n\nPodrás visualizar este proyecto pulsando el boton inferior.')
                 boton_pagina_web(panel_derecho, "Abrir Página Web", 15, machine_learning)
 
             elif models.Data_16.titulo in nombre:
-                borrar_panel_derecho()
-                descripciones(models.Data_16.dia, models.Data_16.fecha, models.Data_16.titulo, models.Data_16.descripcion, models.Data_16.etiqueta, 'Este proyecto fue desarrollado junto a "Django". Por esta razón, no\npuedes contemplarlo en esta interfaz gráfica.\n\nPodrás visualizar este proyecto a traves de esta url local\n(http://localhost:8000/) o con el boton inferior.')
+                borrar_panel_derecho(panel_derecho)
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_16.dia, models.Data_16.fecha, models.Data_16.titulo, models.Data_16.descripcion, models.Data_16.etiqueta, 'Este proyecto fue desarrollado junto a "Django". Por esta razón, no\npuedes contemplarlo en esta interfaz gráfica.\n\nPodrás visualizar este proyecto a traves de esta url local\n(http://localhost:8000/) o con el boton inferior.')
                 boton_pagina_web(panel_derecho, "Ejecutar Aplicación Web", 20, pagina_web)
 
 
@@ -2249,14 +2250,16 @@ def pagina_web():
 
 # Funciones Secundarias
 # Borrar Panel
-def borrar_panel_derecho():
-        if panel_derecho.winfo_children():
+def borrar_panel_derecho(panel_derecho):
+        try:
             for label in panel_derecho.winfo_children():
                 label.destroy()
 
+        except TclError:
+            pass
 
 # Descipciones
-def descripciones(dia, fecha, titulo, descripcion, etiqueta, informacion):
+def descripciones(panel_derecho, COLOR_PANEL, dia, fecha, titulo, descripcion, etiqueta, informacion):
 
         proyecto_titulo = Label(panel_derecho,
                                 text= f"{dia}: {titulo}",
@@ -2309,8 +2312,9 @@ def descripciones(dia, fecha, titulo, descripcion, etiqueta, informacion):
 
 
 # Funcion Infomacion
-def informacion():
-        borrar_panel_derecho()
+def informacion(panel_derecho, COLOR_PANEL):
+
+        borrar_panel_derecho(panel_derecho)
 
         proyecto_titulo = Label(panel_derecho,
                                 text= "Información sobre la Recopilación de Proyectos",
@@ -2334,7 +2338,6 @@ def informacion():
 
 # Boton Pagina Web
 def boton_pagina_web(panel, nombre, largo, comando):
-
         boton_demostracion = Button(panel,
                                 text=f"{nombre}",
                                 fg="#FFFFFF",
@@ -2349,16 +2352,17 @@ def boton_pagina_web(panel, nombre, largo, comando):
 
 
 # Funcion de Errores
-def errores(error, panel):
-    for elemento in panel.winfo_children():
-        elemento.destroy()
+def errores(error, panel_abajo_derecha):
 
-    from tkinter import Label, Frame
-    etiqueta_titulo_principal2 = Label(panel,
+    if panel_abajo_derecha.winfo_children():
+        for elemento in panel_abajo_derecha.winfo_children():
+            elemento.destroy()
+
+    etiqueta_titulo_principal = Label(panel_abajo_derecha,
                                        text=f"{error}",
-                                       fg=COLOR_TITULO,
+                                       fg="#343A40",
                                        font=("NotoSansCJKTC", 15),
                                        width=100,
-                                       bg=COLOR_PANEL)
+                                       bg="#FFFFFF")
 
-    etiqueta_titulo_principal2.pack(side="bottom")
+    etiqueta_titulo_principal.pack(side="bottom")

@@ -1,5 +1,7 @@
 # Importar Interfaz Gráfica
+import time
 from tkinter import *
+import customtkinter as ctk
 from pathlib import Path
 
 # Importar Archivos
@@ -23,9 +25,8 @@ try:
     # Ruta
     ruta = Path(Path.home(), "Proyectos", "Interfaz_Grafica")
 
-
     # Iniciar tkinter
-    aplicacion = Tk()
+    aplicacion = ctk.CTk()
 
 
     # Dimensiones de la aplicación
@@ -38,18 +39,18 @@ try:
 
     # Título / Fondo / Icono
     aplicacion.title("Recopilación de Proyectos - Rubén Blasco Armengod")
-    aplicacion.config(bg=COLOR_FONDO)
+    aplicacion.config(bg= COLOR_FONDO)
     aplicacion.iconbitmap(Path(ruta, "icono.ico"))
 
 
     # Paneles
-    panel_arriba = Frame(aplicacion, bd=1, relief="raised", bg=COLOR_PANEL)
+    panel_arriba = Frame(aplicacion, bd=1, relief="flat", bg=COLOR_PANEL)
     panel_arriba.pack(side="top")
 
-    panel_abajo = Frame(aplicacion, bd=1, relief="raised", bg=COLOR_PANEL)
+    panel_abajo = Frame(aplicacion, bd=0, relief="flat", bg=COLOR_PANEL)
     panel_abajo.pack(side="bottom")
 
-    panel_abajo_derecha = Frame(panel_abajo, bd=0, relief="raised", bg=COLOR_PANEL)
+    panel_abajo_derecha = Frame(panel_abajo, bd=0, relief="flat", bg=COLOR_PANEL)
     panel_abajo_derecha.pack(side="right")
 
     panel_izquierdo = Frame(aplicacion, bd=0, relief="raised", bg=COLOR_FONDO)
@@ -78,14 +79,8 @@ try:
 
     etiqueta_titulo_principal.pack(side="top")
 
-    etiqueta_titulo_principal2 = Label(panel_abajo_derecha,
-                                       text="",
-                                       fg=COLOR_TITULO,
-                                       font=("NotoSansCJKTC", 15),
-                                       width=130,
-                                       bg=COLOR_PANEL)
+    functions.errores("", panel_abajo_derecha)
 
-    etiqueta_titulo_principal2.pack(side="bottom")
 
     etiqueta_titulo = Label(panel_texto,
                             text="¡Bienvenido de Nuevo!",
@@ -140,7 +135,6 @@ try:
     listbox.pack(fill= "both", pady= 20, padx= 48)
 
 
-
     # Botón de Ejecutar
     boton_ejecutar = Button(panel_boton,
                             text="Ejecutar",
@@ -152,7 +146,7 @@ try:
                             activebackground=COLOR_BOTON_PULSADO)
 
     boton_ejecutar.grid(row=9, column=1, padx= 10)
-    boton_ejecutar.config(command=lambda: functions.boton(listbox))
+    boton_ejecutar.config(command=lambda: functions.boton(listbox, panel_derecho, COLOR_PANEL))
 
     # Botón de Información
     boton_informacion = Button(panel_boton,
@@ -165,7 +159,8 @@ try:
                             activebackground= "#969996")
 
     boton_informacion.grid(row=9, column=0)
-    boton_informacion.config(command=lambda: functions.informacion)
+    boton_informacion.config(command=lambda: functions.informacion(panel_derecho, COLOR_PANEL))
+
 
     # Iniciar la aplicación
     aplicacion.mainloop()
