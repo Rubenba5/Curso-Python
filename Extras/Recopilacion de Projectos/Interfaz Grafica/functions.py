@@ -1,4 +1,4 @@
-# Importar
+# Importar Archivos
 import models
 from tkinter import *
 
@@ -2369,21 +2369,4 @@ def boton_pagina_web(panel, nombre, largo, comando):
 
         boton_demostracion.grid(row=10, column=0, padx=5, pady= 10)
         boton_demostracion.config(command= comando)
-
-
-# Funcion de Errores
-def errores(error, panel_abajo_derecha):
-
-    if panel_abajo_derecha.winfo_children():
-        for elemento in panel_abajo_derecha.winfo_children():
-            elemento.destroy()
-
-    etiqueta_titulo_principal = Label(panel_abajo_derecha,
-                                       text=f"{error}",
-                                       fg="#343A40",
-                                       font=("NotoSansCJKTC", 15),
-                                       width=100,
-                                       bg="#FFFFFF")
-
-    etiqueta_titulo_principal.pack(side="bottom")
 

@@ -1,16 +1,37 @@
 # Importar Interfaz Gráfica
-import time
+import tkinter
 from tkinter import *
-import customtkinter as ctk
+from tkinter import ttk
+from ttkthemes import ThemedTk
+
+# Importar Otras Librerias
+import time
 from pathlib import Path
 
 # Importar Archivos
 import models
 import functions
 
+# Funcion Errores
+def errores(error):
+    global panel_abajo_derecha
+
+    if panel_abajo_derecha.winfo_children():
+        for elemento in panel_abajo_derecha.winfo_children():
+            elemento.destroy()
+
+    etiqueta_titulo_principal = Label(panel_abajo_derecha,
+                                       text=f"{error}",
+                                       fg="#343A40",
+                                       font=("NotoSansCJKTC", 15),
+                                       width=100,
+                                       bg="#FFFFFF")
+
+    etiqueta_titulo_principal.pack(side="bottom")
+
+
 # Flujo de errores
 try:
-
 
     # Colores Modernos
     COLOR_FONDO = "#F8F9FA"
@@ -26,7 +47,7 @@ try:
     ruta = Path(Path.home(), "Proyectos", "Interfaz_Grafica")
 
     # Iniciar tkinter
-    aplicacion = ctk.CTk()
+    aplicacion = ThemedTk(theme= "equilux")
 
 
     # Dimensiones de la aplicación
@@ -79,7 +100,7 @@ try:
 
     etiqueta_titulo_principal.pack(side="top")
 
-    functions.errores("", panel_abajo_derecha)
+    errores("")
 
 
     etiqueta_titulo = Label(panel_texto,
@@ -170,66 +191,66 @@ try:
 except SyntaxError:
     print("")
     print("🚨⏐ ¡Error detectado! (SyntaxError)")
-    functions.errores("🚨⏐ ¡Error detectado! (SyntaxError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (SyntaxError)")
 
 except NameError:
     print("")
     print("🚨⏐ ¡Error detectado! (NameError)")
-    functions.errores("🚨⏐ ¡Error detectado! (NameError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (NameError)")
 
 except TypeError:
     print("")
     print("🚨⏐ ¡Error detectado! (TypeError)")
-    functions.errores("🚨⏐ ¡Error detectado! (TypeError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (TypeError)")
 
 except ValueError:
     print("")
     print("🚨⏐ ¡Error detectado! (ValueError)")
-    functions.errores("🚨⏐ ¡Error detectado! (ValueError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (ValueError)")
 
 except KeyError:
     print("")
     print("🚨⏐ ¡Error detectado! (KeyError)")
-    functions.errores("🚨⏐ ¡Error detectado! (KeyError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (KeyError)")
 
 except AttributeError:
     print("")
     print("🚨⏐ ¡Error detectado! (AttributeError)")
-    functions.errores("🚨⏐ ¡Error detectado! (AttributeError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (AttributeError)")
 
 except ZeroDivisionError:
     print("")
     print("🚨⏐ ¡Error detectado! (ZeroDivisionError)")
-    functions.errores("🚨⏐ ¡Error detectado! (ZeroDivisionError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (ZeroDivisionError)")
 
 except (ModuleNotFoundError, ImportError):
     print("")
     print("🚨⏐ ¡Error detectado! (ImportError / ModuleNotFoundError)")
-    functions.errores("🚨⏐ ¡Error detectado! (ImportError / ModuleNotFoundError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (ImportError / ModuleNotFoundError)")
 
 except FileNotFoundError:
     print("")
     print("🚨⏐ ¡Error detectado! (FileNotFoundError)")
-    functions.errores("🚨⏐ ¡Error detectado! (FileNotFoundError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (FileNotFoundError)")
 
 except PermissionError:
     print("")
     print("🚨⏐ ¡Error detectado! (PermissionError)")
-    functions.errores("🚨⏐ ¡Error detectado! (PermissionError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (PermissionError)")
 
 except IOError:
     print("")
     print("🚨⏐ ¡Error detectado! (IOError)")
-    functions.errores("🚨⏐ ¡Error detectado! (IOError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (IOError)")
 
 except RuntimeError:
     print("")
     print("🚨⏐ ¡Error detectado! (RuntimeError)")
-    functions.errores("🚨⏐ ¡Error detectado! (RuntimeError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (RuntimeError)")
 
 # Errores específicos de Tkinter
 except tkinter.TclError:
     print("")
     print("🚨⏐ ¡Error detectado! (Tkinter TclError)")
-    functions.errores("🚨⏐ ¡Error detectado! (Tkinter TclError)", panel_abajo_derecha)
+    errores("🚨⏐ ¡Error detectado! (Tkinter TclError)")
 
