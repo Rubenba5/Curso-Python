@@ -3,6 +3,8 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from ttkthemes import ThemedTk
+from CTkListbox import *
+import customtkinter as ctk
 
 # Importar Otras Librerias
 import time
@@ -47,7 +49,7 @@ try:
     ruta = Path(Path.home(), "Proyectos", "Interfaz_Grafica")
 
     # Iniciar tkinter
-    aplicacion = ThemedTk(theme= "equilux")
+    aplicacion = ctk.CTk()
 
 
     # Dimensiones de la aplicación
@@ -65,38 +67,35 @@ try:
 
 
     # Paneles
-    panel_arriba = Frame(aplicacion, bd=1, relief="flat", bg=COLOR_PANEL)
+    panel_arriba = ctk.CTkFrame(aplicacion, border_width=1, fg_color=COLOR_PANEL)
     panel_arriba.pack(side="top")
 
-    panel_abajo = Frame(aplicacion, bd=0, relief="flat", bg=COLOR_PANEL)
+    panel_abajo = ctk.CTkFrame(aplicacion, border_width=0,  fg_color=COLOR_PANEL)
     panel_abajo.pack(side="bottom")
 
-    panel_abajo_derecha = Frame(panel_abajo, bd=0, relief="flat", bg=COLOR_PANEL)
+    panel_abajo_derecha = ctk.CTkFrame(panel_abajo, border_width=1, fg_color=COLOR_PANEL)
     panel_abajo_derecha.pack(side="right")
 
-    panel_izquierdo = Frame(aplicacion, bd=0, relief="raised", bg=COLOR_FONDO)
-    panel_izquierdo.pack(side="left", fill="x")
+    panel_izquierdo = Frame(aplicacion, bg=COLOR_FONDO)
+    panel_izquierdo.pack(side="left", padx= 10)
 
-    panel_derecho = Frame(aplicacion, bd=1, relief="raised", bg=COLOR_PANEL)
-    panel_derecho.pack(side="right", padx=48)
+    panel_derecho = ctk.CTkFrame(aplicacion, border_width=1, fg_color=COLOR_PANEL, corner_radius=10)
+    panel_derecho.pack_forget()
 
-    panel_texto = Frame(panel_izquierdo, bd=0, relief="raised", bg=COLOR_FONDO)
+    panel_texto = ctk.CTkFrame(panel_izquierdo, border_width=0, fg_color=COLOR_FONDO)
     panel_texto.pack(side="top")
 
-    panel_scrollbar = Frame(panel_izquierdo, bd=0, relief="raised", bg=COLOR_FONDO)
-    panel_scrollbar.pack(fill="both")
-
-    panel_boton = Frame(panel_izquierdo, bd=0, relief="raised", bg=COLOR_FONDO)
+    panel_boton = Frame(panel_izquierdo, bd=0, bg=COLOR_FONDO)
     panel_boton.pack(side="bottom")
 
 
     # Etiquetas
-    etiqueta_titulo_principal = Label(panel_arriba,
+    etiqueta_titulo_principal = ctk.CTkLabel(panel_arriba,
                                       text="Recopilación de Proyectos - Python Total",
-                                      fg=COLOR_TITULO,
+                                      text_color= "#000000",
                                       font=("NotoSansCJKTC", 15),
-                                      width=100,
-                                      bg=COLOR_PANEL)
+                                      width=1000,
+                                      bg_color= COLOR_PANEL)
 
     etiqueta_titulo_principal.pack(side="top")
 
@@ -122,18 +121,19 @@ try:
     etiqueta_descripcion.grid(row=6, column=0)
 
     # Listbox
-    listbox = Listbox(panel_izquierdo,
+    # https://github.com/Akascape/CTkListbox
+    listbox = CTkListbox(panel_izquierdo,
                       width=22,
-                      height=16,
-                      selectbackground= COLOR_SELECCION,
-                      selectforeground= COLOR_TITULO,
-                      font=("NotoSansCJKTC", 10),
-                      bg= COLOR_PANEL,
-                      fg= COLOR_TEXTO,
-                      bd=1,
-                      relief="flat")
+                      height=250,
+                      button_color= "#ffffff",
+                      highlight_color= "#d1d5db",
+                      font=("NotoSansCJKTC", 11),
+                      fg_color= "#f0f2f5",
+                      border_color= "#d1d5db",
+                      hover_color= "#d1d5db",
+                      )
 
-    listbox.pack(padx=5, pady=5)
+    listbox.pack(pady= 5)
 
     # Agregar elementos al Listbox
     listbox.insert(END, f"{models.Data_1.dia}: {models.Data_1.titulo}")
@@ -157,30 +157,34 @@ try:
 
 
     # Botón de Ejecutar
-    boton_ejecutar = Button(panel_boton,
+    boton_ejecutar = ctk.CTkButton(panel_boton,
                             text="Ejecutar",
-                            fg="#FFFFFF",
-                            bg=COLOR_BOTON,
-                            bd=3,
-                            font=("NotoSansCJKTC", 10),
-                            width=10,
-                            activebackground=COLOR_BOTON_PULSADO)
+                            fg_color= COLOR_BOTON,
+                            border_width=2,
+                            font=("NotoSansCJKTC", 13),
+                            width= 90,
+                            height= 30,
+                            corner_radius= 5,
+                            border_color= "#2c3e50",
+                            command= lambda: functions.boton(listbox, panel_derecho, COLOR_PANEL))
 
-    boton_ejecutar.grid(row=9, column=1, padx= 10)
-    boton_ejecutar.config(command=lambda: functions.boton(listbox, panel_derecho, COLOR_PANEL))
+    boton_ejecutar.grid(row=9, column=1, padx= 13)
+
 
     # Botón de Información
-    boton_informacion = Button(panel_boton,
-                            text="Información",
-                            fg="#FFFFFF",
-                            bg= "#c2c3c2",
-                            bd=3,
-                            font=("NotoSansCJKTC", 10),
-                            width=10,
-                            activebackground= "#969996")
+    boton_informacion = ctk.CTkButton(panel_boton,
+                            text = "Información",
+                            fg_color = "#c2c3c2",
+                            border_width = 2,
+                            font = ("NotoSansCJKTC", 13),
+                            width = 90,
+                            height = 30,
+                            corner_radius = 5,
+                            text_color= "#FFFFFF",
+                            border_color= "#2c3e50",
+                            command = lambda: functions.informacion(panel_derecho, COLOR_PANEL))
 
     boton_informacion.grid(row=9, column=0)
-    boton_informacion.config(command=lambda: functions.informacion(panel_derecho, COLOR_PANEL))
 
 
     # Iniciar la aplicación
@@ -198,9 +202,9 @@ except NameError:
     print("🚨⏐ ¡Error detectado! (NameError)")
     errores("🚨⏐ ¡Error detectado! (NameError)")
 
-except TypeError:
+except TypeError as e:
     print("")
-    print("🚨⏐ ¡Error detectado! (TypeError)")
+    print(f"🚨⏐ ¡Error detectado! (TypeError){e}")
     errores("🚨⏐ ¡Error detectado! (TypeError)")
 
 except ValueError:
@@ -249,8 +253,8 @@ except RuntimeError:
     errores("🚨⏐ ¡Error detectado! (RuntimeError)")
 
 # Errores específicos de Tkinter
-except tkinter.TclError:
+except tkinter.TclError as e:
     print("")
-    print("🚨⏐ ¡Error detectado! (Tkinter TclError)")
+    print(f"🚨⏐ ¡Error detectado! (Tkinter TclError){e}")
     errores("🚨⏐ ¡Error detectado! (Tkinter TclError)")
 

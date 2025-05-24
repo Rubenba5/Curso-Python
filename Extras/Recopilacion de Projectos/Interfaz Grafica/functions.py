@@ -1,18 +1,18 @@
 # Importar Archivos
 import models
 from tkinter import *
-
+import customtkinter as ctk
 
 # Funcion Principal
 def boton(listbox, panel_derecho, COLOR_PANEL):
         import time
-
+        panel_derecho.pack(side="right", padx=48)
         # Capturar la selección actual del Listbox
-        selecciones = listbox.curselection()
+        selecciones = listbox.get()
 
         # Verificar si hay al menos un elemento seleccionado
         if selecciones:
-            nombre = listbox.get(selecciones[0])  # Solo tomamos el primer seleccionado
+            nombre = listbox.get()
 
             if models.Data_1.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
@@ -319,7 +319,7 @@ def numero_aleatorio():
                 Numero_Introducido = randint(Numero_Generado, 51)
 
             elif Numero_Introducido == Numero_Generado:
-                Mensajes.append(f"✱ Has acertado el número en {Numero_Intentos} intento. ¡Felicitaciones!\n")
+                Mensajes.append(f"\n✱ Has acertado el número en {Numero_Intentos} intento. ¡Felicitaciones!\n")
                 return "".join(Mensajes)
 
             if Intentos == 0:
@@ -2298,23 +2298,26 @@ def descripciones(panel_derecho, COLOR_PANEL, dia, fecha, titulo, descripcion, e
 
         proyecto_etiquetas.grid(row=3, column=0, padx=5, pady=5)
 
-        texto_demonstracion = Text(panel_derecho,
-                                   fg= "white",
-                                   font=("NotoSansCJKTC", 10, "bold"),
-                                   bd=2,
-                                   width=65,
-                                   height=10,
-                                   bg="#181c18")
+        texto_demonstracion = ctk.CTkTextbox(panel_derecho,
+                                   text_color= "white",
+                                   font=("NotoSansCJKTC", 12, "bold"),
+                                   border_width=2,
+                                   width=460,
+                                   height=200,
+                                   fg_color="#181c18",
+                                   corner_radius= 10,
+                                   scrollbar_button_color= "#ffffff")
 
-        texto_demonstracion.grid(row=4, column=0, padx=5, pady=10)
+
+        texto_demonstracion.grid(row=4, column=0, padx=5, pady=15)
         texto_demonstracion.delete(0.1, END)
         texto_demonstracion.insert(END, f"{informacion}")
-        texto_demonstracion.config(state= "disabled")
-
+        texto_demonstracion.configure(state= "disabled")
 
 # Funcion Infomacion
 def informacion(panel_derecho, COLOR_PANEL):
 
+        panel_derecho.pack(side="right", padx=48)
         borrar_panel_derecho(panel_derecho)
 
         proyecto_titulo = Label(panel_derecho,
@@ -2336,17 +2339,19 @@ def informacion(panel_derecho, COLOR_PANEL):
                                      bg = COLOR_PANEL)
         proyecto_descripcion.grid(row=1, column=0, padx=5, pady=10)
 
-        boton_demostracion = Button(panel_derecho,
-                                    text="Abrir Repositorio",
-                                    fg="#FFFFFF",
-                                    bg="#8a8a8c",
-                                    bd=2,
-                                    font=("NotoSansCJKTC", 10),
-                                    width=15,
-                                    activebackground="#787878")
+        boton_demostracion = ctk.CTkButton(panel_derecho,
+                                           text="Abrir Repositorio",
+                                           fg_color="#c2c3c2",
+                                           border_width=2,
+                                           font=("NotoSansCJKTC", 13),
+                                           width=115,
+                                           height=30,
+                                           corner_radius=5,
+                                           text_color="#FFFFFF",
+                                           border_color="#717d7e",
+                                           command= abrir_repositorio)
 
-        boton_demostracion.grid(row=10, column=0, padx=5, pady=10)
-        boton_demostracion.config(command= abrir_repositorio)
+        boton_demostracion.grid(row=10, column=0, padx=5, pady=15)
 
 
 # Funcion Abrir Repositorio
@@ -2358,15 +2363,18 @@ def abrir_repositorio():
 
 # Boton Pagina Web
 def boton_pagina_web(panel, nombre, largo, comando):
-        boton_demostracion = Button(panel,
+        largo2 = largo
+        boton_demostracion = ctk.CTkButton(panel,
                                 text=f"{nombre}",
-                                fg="#FFFFFF",
-                                bg= "#1f39de",
-                                bd= 3,
-                                font=("NotoSansCJKTC", 10),
-                                width= largo,
-                                activebackground= "#1f39de")
+                                text_color="#FFFFFF",
+                                fg_color= "#16a085",
+                                border_width= 2,
+                                font=("NotoSansCJKTC", 12),
+                                width= 40,
+                                command= comando,
+                                corner_radius= 5,
+                                border_color="#2c3e50",
+                                height= 30)
 
-        boton_demostracion.grid(row=10, column=0, padx=5, pady= 10)
-        boton_demostracion.config(command= comando)
+        boton_demostracion.grid(row=10, column=0, padx=5, pady= 15)
 
