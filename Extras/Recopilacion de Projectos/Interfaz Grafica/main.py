@@ -19,12 +19,12 @@ def errores(error):
         for elemento in panel_abajo_derecha.winfo_children():
             elemento.destroy()
 
-    etiqueta_titulo_principal = Label(panel_abajo_derecha,
+    etiqueta_titulo_principal = ctk.CTkLabel(panel_abajo_derecha,
                                        text=f"{error}",
-                                       fg="#343A40",
+                                       text_color="#343A40",
                                        font=("NotoSansCJKTC", 15),
-                                       width=100,
-                                       bg="#FFFFFF")
+                                       width=1000,
+                                       fg_color="#FFFFFF")
 
     etiqueta_titulo_principal.pack(side="bottom")
 
