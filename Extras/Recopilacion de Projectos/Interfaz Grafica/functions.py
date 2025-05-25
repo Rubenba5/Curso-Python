@@ -17,7 +17,7 @@ def boton(listbox, panel_derecho, COLOR_PANEL):
 
             if models.Data_1.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
-                descripciones(panel_derecho, COLOR_PANEL, models.Data_1.dia, models.Data_1.fecha ,models.Data_1.titulo, models.Data_1.descripcion, models.Data_1.etiqueta, Nombre_Cerveza())
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_1.dia, models.Data_1.fecha, models.Data_1.titulo, models.Data_1.descripcion, models.Data_1.etiqueta, Nombre_Cerveza())
 
             elif models.Data_2.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
@@ -25,7 +25,7 @@ def boton(listbox, panel_derecho, COLOR_PANEL):
 
             elif models.Data_3.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
-                descripciones(panel_derecho, COLOR_PANEL, models.Data_3.dia,  models.Data_3.fecha, models.Data_3.titulo, models.Data_3.descripcion, models.Data_3.etiqueta, analizador_textos())
+                descripciones(panel_derecho, COLOR_PANEL, models.Data_3.dia, models.Data_3.fecha, models.Data_3.titulo, models.Data_3.descripcion, models.Data_3.etiqueta, analizador_textos())
 
             elif models.Data_4.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
@@ -1230,7 +1230,6 @@ def web_scraping():
 
 # Dia 12
 def mi_restaurante():
-    from platform import release
     import random
     import datetime
     from tkinter import filedialog, messagebox  # Guardar

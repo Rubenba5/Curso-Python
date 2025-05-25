@@ -156,31 +156,31 @@ try:
 
     # Botón de Ejecutar
     boton_ejecutar = ctk.CTkButton(panel_boton,
-                            text="Ejecutar",
-                            fg_color= COLOR_BOTON,
-                            border_width=2,
-                            font=("NotoSansCJKTC", 13),
-                            width= 90,
-                            height= 30,
-                            corner_radius= 5,
-                            border_color= "#2c3e50",
-                            command= lambda: functions.boton(listbox, panel_derecho, COLOR_PANEL))
+                                   text="Ejecutar",
+                                   fg_color= COLOR_BOTON,
+                                   border_width=2,
+                                   font=("NotoSansCJKTC", 13),
+                                   width= 90,
+                                   height= 30,
+                                   corner_radius= 5,
+                                   border_color= "#2c3e50",
+                                   command= lambda: functions.boton(listbox, panel_derecho, COLOR_PANEL))
 
     boton_ejecutar.grid(row=9, column=1, padx= 13)
 
 
     # Botón de Información
     boton_informacion = ctk.CTkButton(panel_boton,
-                            text = "Información",
-                            fg_color = "#c2c3c2",
-                            border_width = 2,
-                            font = ("NotoSansCJKTC", 13),
-                            width = 90,
-                            height = 30,
-                            corner_radius = 5,
-                            text_color= "#FFFFFF",
-                            border_color= "#2c3e50",
-                            command = lambda: functions.informacion(panel_derecho, COLOR_PANEL))
+                                      text = "Información",
+                                      fg_color = "#c2c3c2",
+                                      border_width = 2,
+                                      font = ("NotoSansCJKTC", 13),
+                                      width = 90,
+                                      height = 30,
+                                      corner_radius = 5,
+                                      text_color= "#FFFFFF",
+                                      border_color= "#2c3e50",
+                                      command = lambda: functions.informacion(panel_derecho, COLOR_PANEL))
 
     boton_informacion.grid(row=9, column=0)
 
