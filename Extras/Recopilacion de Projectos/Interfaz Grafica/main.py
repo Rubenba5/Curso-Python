@@ -1,13 +1,10 @@
 # Importar Interfaz Gráfica
 import tkinter
 from tkinter import *
-from tkinter import ttk
-from ttkthemes import ThemedTk
 from CTkListbox import *
 import customtkinter as ctk
 
 # Importar Otras Librerias
-import time
 from pathlib import Path
 
 # Importar Archivos
@@ -134,6 +131,7 @@ try:
                       )
 
     listbox.pack(pady= 5)
+    listbox.bind("<Double-1>", lambda event: functions.boton(listbox, panel_derecho, COLOR_PANEL))
 
     # Agregar elementos al Listbox
     listbox.insert(END, f"{models.Data_1.dia}: {models.Data_1.titulo}")
@@ -197,14 +195,14 @@ except SyntaxError:
     print("🚨⏐ ¡Error detectado! (SyntaxError)")
     errores("🚨⏐ ¡Error detectado! (SyntaxError)")
 
-except NameError:
+except NameError as e:
     print("")
-    print("🚨⏐ ¡Error detectado! (NameError)")
+    print(f"🚨⏐ ¡Error detectado! (NameError){e}")
     errores("🚨⏐ ¡Error detectado! (NameError)")
 
-except TypeError as e:
+except TypeError:
     print("")
-    print(f"🚨⏐ ¡Error detectado! (TypeError){e}")
+    print(f"🚨⏐ ¡Error detectado! (TypeError)")
     errores("🚨⏐ ¡Error detectado! (TypeError)")
 
 except ValueError:
@@ -253,8 +251,8 @@ except RuntimeError:
     errores("🚨⏐ ¡Error detectado! (RuntimeError)")
 
 # Errores específicos de Tkinter
-except tkinter.TclError as e:
+except tkinter.TclError:
     print("")
-    print(f"🚨⏐ ¡Error detectado! (Tkinter TclError){e}")
+    print(f"🚨⏐ ¡Error detectado! (Tkinter TclError)")
     errores("🚨⏐ ¡Error detectado! (Tkinter TclError)")
 

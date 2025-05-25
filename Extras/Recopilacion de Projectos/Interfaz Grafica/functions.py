@@ -3,6 +3,7 @@ import models
 from tkinter import *
 import customtkinter as ctk
 
+
 # Funcion Principal
 def boton(listbox, panel_derecho, COLOR_PANEL):
         import time
@@ -67,8 +68,7 @@ def boton(listbox, panel_derecho, COLOR_PANEL):
             elif models.Data_13.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
                 descripciones(panel_derecho, COLOR_PANEL, models.Data_13.dia, models.Data_13.fecha, models.Data_13.titulo, models.Data_13.descripcion, models.Data_13.etiqueta, "Este proyecto se ejecuta usando su microfono obligatoriamente.\n\nPara el correcto funcionamiento de este proyecto, tiene que hablar\nrapidamente cuando el asistenete este callado para que pueda\nreconocer la acción deseada.")
-                time.sleep(10)
-                asistente_personal()
+                boton_pagina_web(panel_derecho, "Ejecutar Asistente Personal", 25, asistente_personal)
 
             elif models.Data_14.titulo in nombre:
                 borrar_panel_derecho(panel_derecho)
@@ -245,7 +245,7 @@ def analizador_textos():
             Expresar = "no aparece"
 
         # Final
-        return f'({Texto})\n\n-Aparecen {Contar} palabra en este texto.\n-Las letras {Letras[0]}, {Letras[1]}, {Letras[2]} añadidas aparecen {Letras_Total} veces.\n-La primera letra y la ultima son: {Primera_Letra} y {Ultima_Letra}\n-El texto al reves sería asi: {Texto_Inveritido}.\n-La palabra "python" {Expresar} en el texto.\n'
+        return f'({Texto})\n\n⮞ En este texto aparece:\n◦ Aparecen {Contar} palabra en este texto.\n◦ Las letras {Letras[0]}, {Letras[1]}, {Letras[2]} añadidas aparecen {Letras_Total} veces.\n◦ La primera letra y la ultima son: {Primera_Letra} y {Ultima_Letra}\n◦ El texto al reves sería asi: {Texto_Inveritido}.\n◦ La palabra "python" {Expresar} en el texto.\n'
 
     # Detección de Errores
     except SyntaxError:
@@ -577,19 +577,16 @@ def cuenta_banco():
                 return f"Usted se llama {self.nombre} {self.apelllido}, su número de cuenta es {self.numero_cuenta} con un balance de {self.balance}€."
 
             def depositar(self):
-                Cantidad = int(input("Cuánto desea depositar en su cuenta: "))
+                Cantidad = random.randint(1, 500)
+                lista_imprimir.append(f"\n\n¿Cuánto desea depositar en su cuenta? {Cantidad}")
                 self.balance += Cantidad
-                print(f"Su cuenta ahora tiene un saldo de {self.balance}€")
+                lista_imprimir.append(f"\n⮞ Su cuenta ahora tiene un saldo de {self.balance} €")
 
             def retirar(self):
-
-                Cantidad = int(input("Cuánto desea retirar en su cuenta: "))
-                if self.balance > Cantidad:
-                    self.balance -= Cantidad
-                    print(f"Su cuenta ahora tiene un saldo de {self.balance}€")
-
-                else:
-                    print("No tienes suficiente saldo para poder retirar dicha cantidad.")
+                cantidad_generar = int(random.randint(1, self.balance))
+                lista_imprimir.append(f"\n\n¿Cuánto desea retirar en su cuenta? {cantidad_generar}")
+                self.balance -= cantidad_generar
+                lista_imprimir.append(f"\n⮞ Su cuenta ahora tiene un saldo de {self.balance} €")
 
         # Funciones
         def crear_cliente():
@@ -600,12 +597,22 @@ def cuenta_banco():
             return Cliente_Nuevo
 
         def inicio(cliente):
+            numero = random.randint(1, 3)
             lista_imprimir.append("")
             lista_imprimir.append(f"Bienvenido, {cliente.nombre} {cliente.apelllido}:\n")
             lista_imprimir.append(f"- Número de Cuenta: {cliente.numero_cuenta}\n")
             lista_imprimir.append(f"- Su saldo es de {cliente.balance} €\n\n")
-            lista_imprimir.append("Acciones disponibles: \n[1] Depositar \n[2] Retirar \n[3] Salir\n\n")
-            lista_imprimir.append(f"¿Qué acción desea hacer?")
+            lista_imprimir.append("Acciones disponibles: \n[1] Depositar \n[2] Retirar \n[3] Consultar Saldo\n\n")
+            lista_imprimir.append(f"¿Qué acción desea hacer? {numero}")
+            if numero == 1:
+                cliente.depositar()
+
+            elif numero == 2:
+                cliente.retirar()
+
+            elif numero == 3:
+                lista_imprimir.append(f"\n\n⮞ Su balance actual es de {cliente.balance} €")
+
 
         # Ejecucion
         cliente_nuevo = crear_cliente()
@@ -619,8 +626,8 @@ def cuenta_banco():
     except NameError:
         return "🚨⏐ ¡Error detectado! (NameError)"
 
-    except TypeError:
-        return "🚨⏐ ¡Error detectado! (TypeError)"
+    except TypeError as e:
+        return f"🚨⏐ ¡Error detectado! (TypeError){e}"
 
     except ValueError:
         return "🚨⏐ ¡Error detectado! (ValueError)"
@@ -831,7 +838,7 @@ def buscar_numeros():
                     Contador += 1
 
             lista_imprimir.append(f"\nNúmeros encontrados: {Contador}")
-            lista_imprimir.append(f"Duración de la busqueda: {math.ceil(duracion)} segundo.")
+            lista_imprimir.append(f"Duración de la busqueda: {math.ceil(duracion)} segundo")
 
         # Ejecución
         Inicio = time.time()
@@ -2314,6 +2321,7 @@ def descripciones(panel_derecho, COLOR_PANEL, dia, fecha, titulo, descripcion, e
         texto_demonstracion.insert(END, f"{informacion}")
         texto_demonstracion.configure(state= "disabled")
 
+
 # Funcion Infomacion
 def informacion(panel_derecho, COLOR_PANEL):
 
@@ -2332,7 +2340,7 @@ def informacion(panel_derecho, COLOR_PANEL):
 
 
         proyecto_descripcion = Label(panel_derecho,
-                                     text= f'Esta interfaz gráfica es una recopilación de los proyectos de\nRubén Blasco Armengod durante su formación en "Python Total",\nimpartido por Federico Garay.\n\nPara el correcto funcionamiento de esta recopilación,\nes necesario descomprimir la carpeta de recursos en\nsu directorio general de su usuario de Windows.\n\nEn esta formación realizo 16 proyectos que son mencionados\nen la parte izquierda de su pantalla incluyendo una demostración.\n\nLos proyectos mencionados en esta recopilación se encuentran\ndisponibles en un repositorio de GitHub para su consulta.',
+                                     text= f'Esta interfaz gráfica es una recopilación de los proyectos de\nRubén Blasco Armengod durante su formación en "Python Total",\nimpartido por Federico Garay.\n\nEn esta formación realizo 16 proyectos que son mencionados\nen la parte izquierda de su pantalla incluyendo una demostración.\n\nPara el correcto funcionamiento de esta recopilación,\nes necesario descomprimir la carpeta de recursos en\nsu directorio general de su usuario de Windows.\n\nLos proyectos mencionados en esta recopilación se encuentran\ndisponibles en un repositorio de GitHub para su consulta.',
                                      fg="black",
                                      font=("NotoSansCJKTC", 11),
                                      width=60,
@@ -2370,7 +2378,7 @@ def boton_pagina_web(panel, nombre, largo, comando):
                                 fg_color= "#16a085",
                                 border_width= 2,
                                 font=("NotoSansCJKTC", 12),
-                                width= 40,
+                                width= 60,
                                 command= comando,
                                 corner_radius= 5,
                                 border_color="#2c3e50",
